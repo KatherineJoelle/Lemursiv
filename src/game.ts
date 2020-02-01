@@ -25,10 +25,9 @@ const transform = new Transform({
 })
 _scene.addComponentOrReplace(transform)
 
-//add origin of smoke
-
-
-
+////////////////////////////////////////////////////////////////////////////
+//add origin of clouds
+////////////////////////////////////////////////////////////////////////////
 let box = new Entity()
 box.addComponent(new BoxShape)
 const transform0 = new Transform({
@@ -38,9 +37,7 @@ const transform0 = new Transform({
 })
 box.addComponentOrReplace(transform0)
 
-
 let smokeTexture = new Texture('textures/cloud.png')
-
 
 const smokeMaterial = new Material()
 smokeMaterial.albedoTexture = smokeTexture
@@ -51,11 +48,13 @@ box.addComponent(smokeMaterial)
 box.addComponent(new SmokeSource(0.2))
 engine.addEntity(box)
 
-
-// Initiate systems
+// Initiate cloud systems
 engine.addSystem(new ThrowSmoke())
 engine.addSystem(new SmokeSystem())
 
+////////////////////////////////////////////////////////////////////////////
+//Add static models
+////////////////////////////////////////////////////////////////////////////
 
 const ocean = new Entity('ocean')
 engine.addEntity(ocean)
@@ -84,7 +83,9 @@ gltfShape.withCollisions = true
 gltfShape.visible = true
 terrain.addComponentOrReplace(gltfShape)
 
-// Builder imported items 
+////////////////////////////////////////////////////////////////////////////
+// Add builder imported items 
+////////////////////////////////////////////////////////////////////////////
 
 const entity = new Entity('entity')
 engine.addEntity(entity)
@@ -793,6 +794,10 @@ const transform71 = new Transform({
 })
 entity64.addComponentOrReplace(transform71)
 
+////////////////////////////////////////////////////////////////////////////
+//Add animated models (animals)
+////////////////////////////////////////////////////////////////////////////
+
 const ayeayeAnimated = new Entity('ayeayeAnimated')
 engine.addEntity(ayeayeAnimated)
 ayeayeAnimated.setParent(_scene)
@@ -1027,6 +1032,76 @@ const transform89 = new Transform({
 })
 rringtailedlemurAni5.addComponentOrReplace(transform89)
 
+const lowlandstreakedtenre = new Entity('lowlandstreakedtenre')
+engine.addEntity(lowlandstreakedtenre)
+lowlandstreakedtenre.setParent(_scene)
+const transform102 = new Transform({
+  position: new Vector3(112.76629638671875, 1.330155849456787, 97.16535949707031),
+  rotation: new Quaternion(-1.409236454676002e-15, -0.8314695954322815, 9.911890685998515e-8, 0.5555702447891235),
+  scale: new Vector3(0.23352983593940735, 0.23353028297424316, 0.23352983593940735)
+})
+lowlandstreakedtenre.addComponentOrReplace(transform102)
+const gltfShape20 = new GLTFShape("models/lowlandStreakedTenrec_animated.glb")
+gltfShape20.withCollisions = true
+gltfShape20.visible = true
+lowlandstreakedtenre.addComponentOrReplace(gltfShape20)
+
+const sifakaLemurAnimate2 = new Entity('sifakaLemurAnimate2')
+engine.addEntity(sifakaLemurAnimate2)
+sifakaLemurAnimate2.setParent(_scene)
+sifakaLemurAnimate2.addComponentOrReplace(gltfShape18)
+const transform122 = new Transform({
+  position: new Vector3(18.544912338256836, 28.475147247314453, 36.143550872802734),
+  rotation: new Quaternion(-2.7072407544768062e-15, -0.16581355035305023, 1.976651731183665e-8, -0.9861571192741394),
+  scale: new Vector3(0.6165609359741211, 0.6165599226951599, 0.6165609359741211)
+})
+sifakaLemurAnimate2.addComponentOrReplace(transform122)
+
+const blackblueeyedLemuri2 = new Entity('blackblueeyedLemuri2')
+engine.addEntity(blackblueeyedLemuri2)
+blackblueeyedLemuri2.setParent(_scene)
+blackblueeyedLemuri2.addComponentOrReplace(gltfShape9)
+const transform123 = new Transform({
+  position: new Vector3(37.5, 1.7324860095977783, 44.833187103271484),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(0.4619230628013611, 0.4619230628013611, 0.4619230628013611)
+})
+blackblueeyedLemuri2.addComponentOrReplace(transform123)
+
+const greymouselemurAnima2 = new Entity('greymouselemurAnima2')
+engine.addEntity(greymouselemurAnima2)
+greymouselemurAnima2.setParent(_scene)
+greymouselemurAnima2.addComponentOrReplace(gltfShape12)
+const transform124 = new Transform({
+  position: new Vector3(50.05329513549805, 3.788217544555664, 77.64924621582031),
+  rotation: new Quaternion(0.3155924379825592, 0.27693164348602295, -0.20333746075630188, 0.8845135569572449),
+  scale: new Vector3(0.2264421284198761, 0.22644218802452087, 0.2264423966407776)
+})
+greymouselemurAnima2.addComponentOrReplace(transform124)
+
+const easternwoollylemurA2 = new Entity('easternwoollylemurA2')
+engine.addEntity(easternwoollylemurA2)
+easternwoollylemurA2.setParent(_scene)
+easternwoollylemurA2.addComponentOrReplace(gltfShape10)
+const transform125 = new Transform({
+  position: new Vector3(69.13116455078125, 6.050521373748779, 85.79640197753906),
+  rotation: new Quaternion(0.044304557144641876, 0.9040204286575317, 0.09984350204467773, -0.4132983088493347),
+  scale: new Vector3(1.0000379085540771, 0.9999983906745911, 1.0000427961349487)
+})
+easternwoollylemurA2.addComponentOrReplace(transform125)
+
+const pantherchameleonAni2 = new Entity('pantherchameleonAni2')
+engine.addEntity(pantherchameleonAni2)
+pantherchameleonAni2.setParent(_scene)
+pantherchameleonAni2.addComponentOrReplace(gltfShape15)
+const transform127 = new Transform({
+  position: new Vector3(119.04702758789062, 3.154653310775757, 103.07477569580078),
+  rotation: new Quaternion(-0.1418684422969818, -0.9288240671157837, -0.06749911606311798, 0.33556392788887024),
+  scale: new Vector3(0.053808555006980896, 0.05380754545331001, 0.05380837991833687)
+})
+pantherchameleonAni2.addComponentOrReplace(transform127)
+
+
 // Sound
 
 const ambientSound = new Entity('ambientSound')
@@ -1151,19 +1226,6 @@ const transform101 = new Transform({
 })
 messageBubble11.addComponentOrReplace(transform101)
 
-const lowlandstreakedtenre = new Entity('lowlandstreakedtenre')
-engine.addEntity(lowlandstreakedtenre)
-lowlandstreakedtenre.setParent(_scene)
-const transform102 = new Transform({
-  position: new Vector3(112.76629638671875, 1.330155849456787, 97.16535949707031),
-  rotation: new Quaternion(-1.409236454676002e-15, -0.8314695954322815, 9.911890685998515e-8, 0.5555702447891235),
-  scale: new Vector3(0.23352983593940735, 0.23353028297424316, 0.23352983593940735)
-})
-lowlandstreakedtenre.addComponentOrReplace(transform102)
-const gltfShape20 = new GLTFShape("models/lowlandStreakedTenrec_animated.glb")
-gltfShape20.withCollisions = true
-gltfShape20.visible = true
-lowlandstreakedtenre.addComponentOrReplace(gltfShape20)
 
 const messageBubble12 = new Entity('messageBubble12')
 engine.addEntity(messageBubble12)
@@ -1174,6 +1236,86 @@ const transform103 = new Transform({
   scale: new Vector3(0.9999997615814209, 1, 0.9999997615814209)
 })
 messageBubble12.addComponentOrReplace(transform103)
+
+const messageBubble13 = new Entity('messageBubble13')
+engine.addEntity(messageBubble13)
+messageBubble13.setParent(_scene)
+const transform128 = new Transform({
+  position: new Vector3(98.79271697998047, 2.5, 122),
+  rotation: new Quaternion(-1.836161362413124e-16, 0.1731312870979309, -2.0638850628529326e-8, -0.9848987460136414),
+  scale: new Vector3(1, 1, 1)
+})
+messageBubble13.addComponentOrReplace(transform128)
+
+const messageBubble14 = new Entity('messageBubble14')
+engine.addEntity(messageBubble14)
+messageBubble14.setParent(_scene)
+const transform129 = new Transform({
+  position: new Vector3(125.8519287109375, 2.576159715652466, 34.70893478393555),
+  rotation: new Quaternion(-3.5911862329021465e-16, -0.46730852127075195, 5.570750971628513e-8, 0.8840943574905396),
+  scale: new Vector3(1, 1, 1)
+})
+messageBubble14.addComponentOrReplace(transform129)
+
+const messageBubble15 = new Entity('messageBubble15')
+engine.addEntity(messageBubble15)
+messageBubble15.setParent(_scene)
+const transform135 = new Transform({
+  position: new Vector3(62.1234245300293, 2.639761447906494, 3.6742138862609863),
+  rotation: new Quaternion(-3.492778474485734e-16, 0.22869232296943665, -2.7262242241476997e-8, 0.9734987616539001),
+  scale: new Vector3(1.0000019073486328, 1, 1.0000019073486328)
+})
+messageBubble15.addComponentOrReplace(transform135)
+
+const messageBubble16 = new Entity('messageBubble16')
+engine.addEntity(messageBubble16)
+messageBubble16.setParent(_scene)
+const transform148 = new Transform({
+  position: new Vector3(49, 1, 25.87017822265625),
+  rotation: new Quaternion(-4.750350291824064e-16, 0.3702694773674011, -4.4139561339306965e-8, 0.9289243817329407),
+  scale: new Vector3(1, 1, 1)
+})
+messageBubble16.addComponentOrReplace(transform148)
+
+const messageBubble17 = new Entity('messageBubble17')
+engine.addEntity(messageBubble17)
+messageBubble17.setParent(_scene)
+const transform160 = new Transform({
+  position: new Vector3(2.5, 2.9657607078552246, 96),
+  rotation: new Quaternion(1.5416593621882528e-15, 0.602097749710083, -7.177563077220839e-8, 0.7984223961830139),
+  scale: new Vector3(1, 1, 1)
+})
+messageBubble17.addComponentOrReplace(transform160)
+
+const messageBubble18 = new Entity('messageBubble18')
+engine.addEntity(messageBubble18)
+messageBubble18.setParent(_scene)
+const transform165 = new Transform({
+  position: new Vector3(26.17896842956543, 1.3490605354309082, 79),
+  rotation: new Quaternion(1.0049174401678888e-16, -0.2816123366355896, 3.3570803026350404e-8, 0.9595283269882202),
+  scale: new Vector3(1, 1, 1)
+})
+messageBubble18.addComponentOrReplace(transform165)
+
+const messageBubble19 = new Entity('messageBubble19')
+engine.addEntity(messageBubble19)
+messageBubble19.setParent(_scene)
+const transform166 = new Transform({
+  position: new Vector3(50.36443328857422, 5.004460334777832, 73.333251953125),
+  rotation: new Quaternion(-1.0806180584483163e-15, -0.7995942831039429, 9.531905220683257e-8, -0.6005406975746155),
+  scale: new Vector3(2.42463755607605, 2.033447504043579, 0.7294757962226868)
+})
+messageBubble19.addComponentOrReplace(transform166)
+
+const messageBubble20 = new Entity('messageBubble20')
+engine.addEntity(messageBubble20)
+messageBubble20.setParent(_scene)
+const transform167 = new Transform({
+  position: new Vector3(50.29426574707031, 3.8705177307128906, 78.69239807128906),
+  rotation: new Quaternion(-1.0806180584483163e-15, -0.7995942831039429, 9.531905220683257e-8, -0.6005406975746155),
+  scale: new Vector3(2.4246740341186523, 2.033447504043579, 0.7294864654541016)
+})
+messageBubble20.addComponentOrReplace(transform167)
 
 // Text holders for Lemursiv information booth
 
@@ -1340,7 +1482,109 @@ const transform119 = new Transform({
 })
 clickArea7.addComponentOrReplace(transform119)
 
-// Scroll (additional info about island features)
+const clickArea8 = new Entity('clickArea8')
+engine.addEntity(clickArea8)
+clickArea8.setParent(_scene)
+const transform121 = new Transform({
+  position: new Vector3(91.93419647216797, 7.70443868637085, 95.51493072509766),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1.1756210327148438, 1.1756210327148438, 1.1756210327148438)
+})
+clickArea8.addComponentOrReplace(transform121)
+
+const clickArea = new Entity('clickArea')
+engine.addEntity(clickArea)
+clickArea.setParent(_scene)
+const transform156 = new Transform({
+  position: new Vector3(96.80152130126953, 1.612135887145996, 76.37388610839844),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1.9981725215911865, 1.9260542392730713, 1.6982139348983765)
+})
+clickArea.addComponentOrReplace(transform156)
+
+const clickArea2 = new Entity('clickArea2')
+engine.addEntity(clickArea2)
+clickArea2.setParent(_scene)
+const transform157 = new Transform({
+  position: new Vector3(108.80152130126953, 1.5634675025939941, 103.6623764038086),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1.6727080345153809, 11.992072105407715, 1.6727080345153809)
+})
+clickArea2.addComponentOrReplace(transform157)
+
+const clickArea3 = new Entity('clickArea3')
+engine.addEntity(clickArea3)
+clickArea3.setParent(_scene)
+const transform170 = new Transform({
+  position: new Vector3(84.116943359375, 1.1296277046203613, 59.20854568481445),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(0.8392897844314575, 2.648536443710327, 0.7132985591888428)
+})
+clickArea3.addComponentOrReplace(transform170)
+
+const clickArea4 = new Entity('clickArea4')
+engine.addEntity(clickArea4)
+clickArea4.setParent(_scene)
+const transform171 = new Transform({
+  position: new Vector3(64.00989532470703, 1.1296277046203613, 53.288665771484375),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(0.8392897844314575, 2.648536443710327, 0.7132985591888428)
+})
+clickArea4.addComponentOrReplace(transform171)
+
+const clickArea9 = new Entity('clickArea9')
+engine.addEntity(clickArea9)
+clickArea9.setParent(_scene)
+const transform172 = new Transform({
+  position: new Vector3(60.97980499267578, 1.1296277046203613, 52.8796272277832),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(0.8392897844314575, 2.648536443710327, 0.7132985591888428)
+})
+clickArea9.addComponentOrReplace(transform172)
+
+const clickArea10 = new Entity('clickArea10')
+engine.addEntity(clickArea10)
+clickArea10.setParent(_scene)
+const transform174 = new Transform({
+  position: new Vector3(61.10545349121094, 1.5335206985473633, 60.11491394042969),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1.0756871700286865, 3.9598886966705322, 0.9803192019462585)
+})
+clickArea10.addComponentOrReplace(transform174)
+
+const clickArea11 = new Entity('clickArea11')
+engine.addEntity(clickArea11)
+clickArea11.setParent(_scene)
+const transform175 = new Transform({
+  position: new Vector3(37.20643997192383, 1.8493232727050781, 48.004669189453125),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1.3508061170578003, 3.9598886966705322, 1.2540194988250732)
+})
+clickArea11.addComponentOrReplace(transform175)
+
+const clickArea12 = new Entity('clickArea12')
+engine.addEntity(clickArea12)
+clickArea12.setParent(_scene)
+const transform176 = new Transform({
+  position: new Vector3(43.36765670776367, 0.44776439666748047, 38.78425598144531),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(0.8392897844314575, 3.9598886966705322, 0.9803192019462585)
+})
+clickArea12.addComponentOrReplace(transform176)
+
+const clickArea13 = new Entity('clickArea13')
+engine.addEntity(clickArea13)
+clickArea13.setParent(_scene)
+const transform177 = new Transform({
+  position: new Vector3(66.98380279541016, 1.5335206985473633, 56.258140563964844),
+  rotation: new Quaternion(0, 0, 0, 1),
+  scale: new Vector3(1.0756871700286865, 3.9598886966705322, 0.9803192019462585)
+})
+clickArea13.addComponentOrReplace(transform177)
+
+////////////////////////////////////////////////////////////////////////////
+// Scrolls (additional info about island features)
+////////////////////////////////////////////////////////////////////////////
 
 const scroll = new Entity('scroll')
 engine.addEntity(scroll)
@@ -1352,96 +1596,28 @@ const transform120 = new Transform({
 })
 scroll.addComponentOrReplace(transform120)
 
-// Click areas continued
-
-const clickArea8 = new Entity('clickArea8')
-engine.addEntity(clickArea8)
-clickArea8.setParent(_scene)
-const transform121 = new Transform({
-  position: new Vector3(91.93419647216797, 7.70443868637085, 95.51493072509766),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1.1756210327148438, 1.1756210327148438, 1.1756210327148438)
+const scroll2 = new Entity('scroll2')
+engine.addEntity(scroll2)
+scroll2.setParent(_scene)
+const transform158 = new Transform({
+  position: new Vector3(110.5, 1.3708429336547852, 103.93609619140625),
+  rotation: new Quaternion(8.878396065212235e-16, 0.2790408432483673, -3.3264246468434067e-8, 0.9602792859077454),
+  scale: new Vector3(1.000000238418579, 1, 1.000000238418579)
 })
-clickArea8.addComponentOrReplace(transform121)
+scroll2.addComponentOrReplace(transform158)
 
-// Animals 
-
-const sifakaLemurAnimate2 = new Entity('sifakaLemurAnimate2')
-engine.addEntity(sifakaLemurAnimate2)
-sifakaLemurAnimate2.setParent(_scene)
-sifakaLemurAnimate2.addComponentOrReplace(gltfShape18)
-const transform122 = new Transform({
-  position: new Vector3(18.544912338256836, 28.475147247314453, 36.143550872802734),
-  rotation: new Quaternion(-2.7072407544768062e-15, -0.16581355035305023, 1.976651731183665e-8, -0.9861571192741394),
-  scale: new Vector3(0.6165609359741211, 0.6165599226951599, 0.6165609359741211)
-})
-sifakaLemurAnimate2.addComponentOrReplace(transform122)
-
-const blackblueeyedLemuri2 = new Entity('blackblueeyedLemuri2')
-engine.addEntity(blackblueeyedLemuri2)
-blackblueeyedLemuri2.setParent(_scene)
-blackblueeyedLemuri2.addComponentOrReplace(gltfShape9)
-const transform123 = new Transform({
-  position: new Vector3(37.5, 1.7324860095977783, 44.833187103271484),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(0.4619230628013611, 0.4619230628013611, 0.4619230628013611)
-})
-blackblueeyedLemuri2.addComponentOrReplace(transform123)
-
-const greymouselemurAnima2 = new Entity('greymouselemurAnima2')
-engine.addEntity(greymouselemurAnima2)
-greymouselemurAnima2.setParent(_scene)
-greymouselemurAnima2.addComponentOrReplace(gltfShape12)
-const transform124 = new Transform({
-  position: new Vector3(50.05329513549805, 3.788217544555664, 77.64924621582031),
-  rotation: new Quaternion(0.3155924379825592, 0.27693164348602295, -0.20333746075630188, 0.8845135569572449),
-  scale: new Vector3(0.2264421284198761, 0.22644218802452087, 0.2264423966407776)
-})
-greymouselemurAnima2.addComponentOrReplace(transform124)
-
-const easternwoollylemurA2 = new Entity('easternwoollylemurA2')
-engine.addEntity(easternwoollylemurA2)
-easternwoollylemurA2.setParent(_scene)
-easternwoollylemurA2.addComponentOrReplace(gltfShape10)
-const transform125 = new Transform({
-  position: new Vector3(69.13116455078125, 6.050521373748779, 85.79640197753906),
-  rotation: new Quaternion(0.044304557144641876, 0.9040204286575317, 0.09984350204467773, -0.4132983088493347),
-  scale: new Vector3(1.0000379085540771, 0.9999983906745911, 1.0000427961349487)
-})
-easternwoollylemurA2.addComponentOrReplace(transform125)
-
-const pantherchameleonAni2 = new Entity('pantherchameleonAni2')
-engine.addEntity(pantherchameleonAni2)
-pantherchameleonAni2.setParent(_scene)
-pantherchameleonAni2.addComponentOrReplace(gltfShape15)
-const transform127 = new Transform({
-  position: new Vector3(119.04702758789062, 3.154653310775757, 103.07477569580078),
-  rotation: new Quaternion(-0.1418684422969818, -0.9288240671157837, -0.06749911606311798, 0.33556392788887024),
-  scale: new Vector3(0.053808555006980896, 0.05380754545331001, 0.05380837991833687)
-})
-pantherchameleonAni2.addComponentOrReplace(transform127)
-
-// Message Bubbles (animal info)
-
-const messageBubble13 = new Entity('messageBubble13')
-engine.addEntity(messageBubble13)
-messageBubble13.setParent(_scene)
-const transform128 = new Transform({
-  position: new Vector3(98.79271697998047, 2.5, 122),
-  rotation: new Quaternion(-1.836161362413124e-16, 0.1731312870979309, -2.0638850628529326e-8, -0.9848987460136414),
+const scroll3 = new Entity('scroll3')
+engine.addEntity(scroll3)
+scroll3.setParent(_scene)
+const transform173 = new Transform({
+  position: new Vector3(62.5, 1.8446216583251953, 53.7574348449707),
+  rotation: new Quaternion(-1.3392636981780347e-15, 0.4943492114543915, -5.8931004076612226e-8, -0.8692634105682373),
   scale: new Vector3(1, 1, 1)
 })
-messageBubble13.addComponentOrReplace(transform128)
+scroll3.addComponentOrReplace(transform173)
 
-const messageBubble14 = new Entity('messageBubble14')
-engine.addEntity(messageBubble14)
-messageBubble14.setParent(_scene)
-const transform129 = new Transform({
-  position: new Vector3(125.8519287109375, 2.576159715652466, 34.70893478393555),
-  rotation: new Quaternion(-3.5911862329021465e-16, -0.46730852127075195, 5.570750971628513e-8, 0.8840943574905396),
-  scale: new Vector3(1, 1, 1)
-})
-messageBubble14.addComponentOrReplace(transform129)
+
+
 
 // PIXEL ART CENTRES
 
@@ -1481,17 +1657,8 @@ const transform134 = new Transform({
 })
 stoneBrickWindowWithStainedGlass3.addComponentOrReplace(transform134)
 
-// Message Bubbles (Animal info)
 
-const messageBubble15 = new Entity('messageBubble15')
-engine.addEntity(messageBubble15)
-messageBubble15.setParent(_scene)
-const transform135 = new Transform({
-  position: new Vector3(62.1234245300293, 2.639761447906494, 3.6742138862609863),
-  rotation: new Quaternion(-3.492778474485734e-16, 0.22869232296943665, -2.7262242241476997e-8, 0.9734987616539001),
-  scale: new Vector3(1.0000019073486328, 1, 1.0000019073486328)
-})
-messageBubble15.addComponentOrReplace(transform135)
+
 
 // Raft and Lever system 
 
@@ -1618,20 +1785,6 @@ const transform147 = new Transform({
 })
 signpostDirections2.addComponentOrReplace(transform147)
 
-// Message Bubbles (animal info)
-
-const messageBubble16 = new Entity('messageBubble16')
-engine.addEntity(messageBubble16)
-messageBubble16.setParent(_scene)
-const transform148 = new Transform({
-  position: new Vector3(49, 1, 25.87017822265625),
-  rotation: new Quaternion(-4.750350291824064e-16, 0.3702694773674011, -4.4139561339306965e-8, 0.9289243817329407),
-  scale: new Vector3(1, 1, 1)
-})
-messageBubble16.addComponentOrReplace(transform148)
-
-// Signposts
-
 const signpostWood = new Entity('signpostWood')
 engine.addEntity(signpostWood)
 signpostWood.setParent(_scene)
@@ -1692,54 +1845,6 @@ const transform154 = new Transform({
 })
 signpostDirections5.addComponentOrReplace(transform154)
 
-// TOOLS
-
-const tools = new Entity('tools')
-engine.addEntity(tools)
-tools.setParent(_scene)
-const transform155 = new Transform({
-  position: new Vector3(90.5, 0, 83),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1, 1, 1)
-})
-tools.addComponentOrReplace(transform155)
-
-// CLICK AREAS
-
-const clickArea = new Entity('clickArea')
-engine.addEntity(clickArea)
-clickArea.setParent(_scene)
-const transform156 = new Transform({
-  position: new Vector3(96.80152130126953, 1.612135887145996, 76.37388610839844),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1.9981725215911865, 1.9260542392730713, 1.6982139348983765)
-})
-clickArea.addComponentOrReplace(transform156)
-
-const clickArea2 = new Entity('clickArea2')
-engine.addEntity(clickArea2)
-clickArea2.setParent(_scene)
-const transform157 = new Transform({
-  position: new Vector3(108.80152130126953, 1.5634675025939941, 103.6623764038086),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1.6727080345153809, 11.992072105407715, 1.6727080345153809)
-})
-clickArea2.addComponentOrReplace(transform157)
-
-//SCROLL
-
-const scroll2 = new Entity('scroll2')
-engine.addEntity(scroll2)
-scroll2.setParent(_scene)
-const transform158 = new Transform({
-  position: new Vector3(110.5, 1.3708429336547852, 103.93609619140625),
-  rotation: new Quaternion(8.878396065212235e-16, 0.2790408432483673, -3.3264246468434067e-8, 0.9602792859077454),
-  scale: new Vector3(1.000000238418579, 1, 1.000000238418579)
-})
-scroll2.addComponentOrReplace(transform158)
-
-//SIGNPOST
-
 const signpostTree14 = new Entity('signpostTree14')
 engine.addEntity(signpostTree14)
 signpostTree14.setParent(_scene)
@@ -1750,19 +1855,6 @@ const transform159 = new Transform({
 })
 signpostTree14.addComponentOrReplace(transform159)
 
-// MESSAGES
-
-const messageBubble17 = new Entity('messageBubble17')
-engine.addEntity(messageBubble17)
-messageBubble17.setParent(_scene)
-const transform160 = new Transform({
-  position: new Vector3(2.5, 2.9657607078552246, 96),
-  rotation: new Quaternion(1.5416593621882528e-15, 0.602097749710083, -7.177563077220839e-8, 0.7984223961830139),
-  scale: new Vector3(1, 1, 1)
-})
-messageBubble17.addComponentOrReplace(transform160)
-
-// SIGNPOST 
 const signpostDirections6 = new Entity('signpostDirections6')
 engine.addEntity(signpostDirections6)
 signpostDirections6.setParent(_scene)
@@ -1803,38 +1895,6 @@ const transform164 = new Transform({
 })
 signpostDirections9.addComponentOrReplace(transform164)
 
-// MESSAGES
-
-const messageBubble18 = new Entity('messageBubble18')
-engine.addEntity(messageBubble18)
-messageBubble18.setParent(_scene)
-const transform165 = new Transform({
-  position: new Vector3(26.17896842956543, 1.3490605354309082, 79),
-  rotation: new Quaternion(1.0049174401678888e-16, -0.2816123366355896, 3.3570803026350404e-8, 0.9595283269882202),
-  scale: new Vector3(1, 1, 1)
-})
-messageBubble18.addComponentOrReplace(transform165)
-
-const messageBubble19 = new Entity('messageBubble19')
-engine.addEntity(messageBubble19)
-messageBubble19.setParent(_scene)
-const transform166 = new Transform({
-  position: new Vector3(50.36443328857422, 5.004460334777832, 73.333251953125),
-  rotation: new Quaternion(-1.0806180584483163e-15, -0.7995942831039429, 9.531905220683257e-8, -0.6005406975746155),
-  scale: new Vector3(2.42463755607605, 2.033447504043579, 0.7294757962226868)
-})
-messageBubble19.addComponentOrReplace(transform166)
-
-const messageBubble20 = new Entity('messageBubble20')
-engine.addEntity(messageBubble20)
-messageBubble20.setParent(_scene)
-const transform167 = new Transform({
-  position: new Vector3(50.29426574707031, 3.8705177307128906, 78.69239807128906),
-  rotation: new Quaternion(-1.0806180584483163e-15, -0.7995942831039429, 9.531905220683257e-8, -0.6005406975746155),
-  scale: new Vector3(2.4246740341186523, 2.033447504043579, 0.7294864654541016)
-})
-messageBubble20.addComponentOrReplace(transform167)
-
 const signpostTree16 = new Entity('signpostTree16')
 engine.addEntity(signpostTree16)
 signpostTree16.setParent(_scene)
@@ -1855,91 +1915,28 @@ const transform169 = new Transform({
 })
 signpostTree17.addComponentOrReplace(transform169)
 
-// CLICK AREA
+// TOOLS
 
-const clickArea3 = new Entity('clickArea3')
-engine.addEntity(clickArea3)
-clickArea3.setParent(_scene)
-const transform170 = new Transform({
-  position: new Vector3(84.116943359375, 1.1296277046203613, 59.20854568481445),
+const tools = new Entity('tools')
+engine.addEntity(tools)
+tools.setParent(_scene)
+const transform155 = new Transform({
+  position: new Vector3(90.5, 0, 83),
   rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(0.8392897844314575, 2.648536443710327, 0.7132985591888428)
+  scale: new Vector3(1, 1, 1)
 })
-clickArea3.addComponentOrReplace(transform170)
+tools.addComponentOrReplace(transform155)
 
-const clickArea4 = new Entity('clickArea4')
-engine.addEntity(clickArea4)
-clickArea4.setParent(_scene)
-const transform171 = new Transform({
-  position: new Vector3(64.00989532470703, 1.1296277046203613, 53.288665771484375),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(0.8392897844314575, 2.648536443710327, 0.7132985591888428)
-})
-clickArea4.addComponentOrReplace(transform171)
 
-const clickArea9 = new Entity('clickArea9')
-engine.addEntity(clickArea9)
-clickArea9.setParent(_scene)
-const transform172 = new Transform({
-  position: new Vector3(60.97980499267578, 1.1296277046203613, 52.8796272277832),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(0.8392897844314575, 2.648536443710327, 0.7132985591888428)
-})
-clickArea9.addComponentOrReplace(transform172)
+
 
 //SCROLL
 
-const scroll3 = new Entity('scroll3')
-engine.addEntity(scroll3)
-scroll3.setParent(_scene)
-const transform173 = new Transform({
-  position: new Vector3(62.5, 1.8446216583251953, 53.7574348449707),
-  rotation: new Quaternion(-1.3392636981780347e-15, 0.4943492114543915, -5.8931004076612226e-8, -0.8692634105682373),
-  scale: new Vector3(1, 1, 1)
-})
-scroll3.addComponentOrReplace(transform173)
+
 
 //CLICK AREA
 
-const clickArea10 = new Entity('clickArea10')
-engine.addEntity(clickArea10)
-clickArea10.setParent(_scene)
-const transform174 = new Transform({
-  position: new Vector3(61.10545349121094, 1.5335206985473633, 60.11491394042969),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1.0756871700286865, 3.9598886966705322, 0.9803192019462585)
-})
-clickArea10.addComponentOrReplace(transform174)
 
-const clickArea11 = new Entity('clickArea11')
-engine.addEntity(clickArea11)
-clickArea11.setParent(_scene)
-const transform175 = new Transform({
-  position: new Vector3(37.20643997192383, 1.8493232727050781, 48.004669189453125),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1.3508061170578003, 3.9598886966705322, 1.2540194988250732)
-})
-clickArea11.addComponentOrReplace(transform175)
-
-const clickArea12 = new Entity('clickArea12')
-engine.addEntity(clickArea12)
-clickArea12.setParent(_scene)
-const transform176 = new Transform({
-  position: new Vector3(43.36765670776367, 0.44776439666748047, 38.78425598144531),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(0.8392897844314575, 3.9598886966705322, 0.9803192019462585)
-})
-clickArea12.addComponentOrReplace(transform176)
-
-const clickArea13 = new Entity('clickArea13')
-engine.addEntity(clickArea13)
-clickArea13.setParent(_scene)
-const transform177 = new Transform({
-  position: new Vector3(66.98380279541016, 1.5335206985473633, 56.258140563964844),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1.0756871700286865, 3.9598886966705322, 0.9803192019462585)
-})
-clickArea13.addComponentOrReplace(transform177)
 
 //SCROLL
 
@@ -2351,7 +2348,7 @@ script7.spawn(pirateLever6, {"onActivate":[{"entityName":"raft4","actionId":"goT
 script6.spawn(raft4, {"distance":32,"speed":2,"autoStart":false,"onReachEnd":[],"onReachStart":[]}, createChannel(channelId, raft4, channelBus))
 script8.spawn(signpostDirections, {"textTop":"Pixel Art Centre","textMiddle":"Owl Tour","textLower":"Mt Maromokotro","fontSize":15}, createChannel(channelId, signpostDirections, channelBus))
 script8.spawn(signpostDirections2, {"textTop":"Pixel Art Studio","textMiddle":"Tsingy","textLower":"Owl Tour","fontSize":15}, createChannel(channelId, signpostDirections2, channelBus))
-script2.spawn(messageBubble16, {"text":"Hello, I'm a painted mantella \nfrog, not many people see me! \nMy habitat is in danger and my\nfamily is growing smaller.","fontSize":12}, createChannel(channelId, messageBubble16, channelBus))
+script2.spawn(messageBubble16, {"text":"Hello, I'm a painted \nmantella frog, not many \npeople see me! \nMy habitat is in danger \nand my family \nis growing smaller.","fontSize":12}, createChannel(channelId, messageBubble16, channelBus))
 script9.spawn(signpostWood, {"text":"Tsingy","fontSize":20}, createChannel(channelId, signpostWood, channelBus))
 script9.spawn(signpostWood2, {"text":"Mt Maromokotro","fontSize":20}, createChannel(channelId, signpostWood2, channelBus))
 script10.spawn(signpostDirections3, {"textTop":"Pixel Art Centre","textLower":"Lemursiv  ","fontSize":19}, createChannel(channelId, signpostDirections3, channelBus))
