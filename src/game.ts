@@ -15,6 +15,23 @@ import Script12 from "../28352c3a-cc20-4ab4-b4b8-a4562a6b0d4d/src/item"
 import Script13 from "../4c3b4f56-9329-4230-9d43-4f94fbf6771d/src/item"
 import { SmokeSource, ThrowSmoke } from "./modules/smokeSource";
 import { SmokeSystem } from "./modules/smoke";
+import {
+  swatchZUnselected,
+  swatchScale,
+  Swatch,
+  swatches,
+  GrowSwatches
+} from './modules/swatches'
+import {
+  Pixel,
+  pixels,
+  CheckServer,
+  getFromServer,
+  wallPixelTransparentMaterial,
+  wallPixelColorMaterial
+} from './modules/pixels'
+import { apiUrl, refreshInterval, swatchColors, wallBlocksX, wallBlocksY, wallWidth, wallHeight, wallPixelZ, wallPixelScale, paletteColor, wallOffsetX, wallOffsetY, blankColor } from "./params";
+import { PixelInstance } from './pixelinstance'
 
 const _scene = new Entity('_scene')
 engine.addEntity(_scene)
@@ -1621,41 +1638,14 @@ scroll3.addComponentOrReplace(transform173)
 
 // PIXEL ART CENTRES
 
-const stoneBrickWindowWithStainedGlass = new Entity('stoneBrickWindowWithStainedGlass')
-engine.addEntity(stoneBrickWindowWithStainedGlass)
-stoneBrickWindowWithStainedGlass.setParent(_scene)
-const transform132 = new Transform({
-  position: new Vector3(36.24333190917969, 0, 112.55841064453125),
-  rotation: new Quaternion(-5.205918703933554e-15, -0.4988693594932556, 5.9469847712989576e-8, 0.8666772246360779),
-  scale: new Vector3(6.826430320739746, 2.5, 2.5076680183410645)
-})
-stoneBrickWindowWithStainedGlass.addComponentOrReplace(transform132)
-const gltfShape24 = new GLTFShape("models/Module_Stone_Straight_Window_02/Module_Stone_Straight_Window_02.glb")
-gltfShape24.withCollisions = true
-gltfShape24.visible = true
-stoneBrickWindowWithStainedGlass.addComponentOrReplace(gltfShape24)
 
-const stoneBrickWindowWithStainedGlass2 = new Entity('stoneBrickWindowWithStainedGlass2')
-engine.addEntity(stoneBrickWindowWithStainedGlass2)
-stoneBrickWindowWithStainedGlass2.setParent(_scene)
-stoneBrickWindowWithStainedGlass2.addComponentOrReplace(gltfShape24)
-const transform133 = new Transform({
-  position: new Vector3(33.704532623291016, 2.0356454849243164, 47.84645080566406),
-  rotation: new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349),
-  scale: new Vector3(1.0000096559524536, 1, 1.0000096559524536)
-})
-stoneBrickWindowWithStainedGlass2.addComponentOrReplace(transform133)
+import {PixelInstance} from './pixelinstance'
+const station1 = new PixelInstance(new Vector3(81.50196838378906, 3.2319021224975586, 72.0679702758789),new Quaternion(-1.5394153601527394e-15, -0.7071068286895752, 8.429369557916289e-8, 0.7071068286895752))
+const station2 = new PixelInstance(new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
+const station3 = new PixelInstance(new Vector3(107.12619018554688, 4.097695350646973, 114.86958312988281),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
 
-const stoneBrickWindowWithStainedGlass3 = new Entity('stoneBrickWindowWithStainedGlass3')
-engine.addEntity(stoneBrickWindowWithStainedGlass3)
-stoneBrickWindowWithStainedGlass3.setParent(_scene)
-stoneBrickWindowWithStainedGlass3.addComponentOrReplace(gltfShape24)
-const transform134 = new Transform({
-  position: new Vector3(106.9730224609375, 1.545358657836914, 118.42561340332031),
-  rotation: new Quaternion(-1.3460364677451617e-15, -0.3965247869491577, 4.7269445246911346e-8, 0.9180240631103516),
-  scale: new Vector3(1.6334309577941895, 1.6334152221679688, 1.6334309577941895)
-})
-stoneBrickWindowWithStainedGlass3.addComponentOrReplace(transform134)
+
+
 
 
 
@@ -2409,6 +2399,3 @@ script13.spawn(verticalMagicRock2, {"distance":50,"speed":1,"autoStart":true,"on
 
 // Add pixel art centres 
 
-const station1 = new PixelInstance(new Vector3(81.50196838378906, 3.2319021224975586, 72.0679702758789),new Quaternion(-1.5394153601527394e-15, -0.7071068286895752, 8.429369557916289e-8, 0.7071068286895752))
-const station2 = new PixelInstance(new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
-const station3 = new PixelInstance(new Vector3(107.12619018554688, 4.097695350646973, 114.86958312988281),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
