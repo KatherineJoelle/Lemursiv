@@ -31,7 +31,7 @@ import {
   wallPixelColorMaterial
 } from './modules/pixels'
 import { apiUrl, refreshInterval, swatchColors, wallBlocksX, wallBlocksY, wallWidth, wallHeight, wallPixelZ, wallPixelScale, paletteColor, wallOffsetX, wallOffsetY, blankColor } from "./params";
-import { PixelInstance } from './pixelinstance'
+
 
 const _scene = new Entity('_scene')
 engine.addEntity(_scene)
@@ -1638,14 +1638,10 @@ scroll3.addComponentOrReplace(transform173)
 
 // PIXEL ART CENTRES
 
-
 import {PixelInstance} from './pixelinstance'
 const station1 = new PixelInstance(new Vector3(81.50196838378906, 3.2319021224975586, 72.0679702758789),new Quaternion(-1.5394153601527394e-15, -0.7071068286895752, 8.429369557916289e-8, 0.7071068286895752))
 const station2 = new PixelInstance(new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
 const station3 = new PixelInstance(new Vector3(107.12619018554688, 4.097695350646973, 114.86958312988281),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
-
-
-
 
 
 
