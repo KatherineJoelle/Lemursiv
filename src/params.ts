@@ -17,7 +17,7 @@ export const wallPixelScale: Vector3 = new Vector3(wallWidth / wallBlocksX - 0.0
 
 ///// Connect to the REST API
 
-export const apiUrl = "http://ec2-34-216-54-88.us-west-2.compute.amazonaws.com:7753"
+export const apiUrl = "https://ec2-13-52-235-144.us-west-1.compute.amazonaws.com:3000"
 
 export const headers = {
   Accept: "application/json",
