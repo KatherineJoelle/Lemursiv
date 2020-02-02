@@ -1,3 +1,5 @@
+import audiosources
+
 
 //create canvas for UI
 
@@ -266,7 +268,6 @@ soundIcon.onClick = new OnClick (() => {
     log ('clicked sound icon')
     soundIcon.visible = false
     muteIcon.visible = true
-    AudioSource.play = false
     treeText.visible = false
     shareText.visible = false
     pictureText.visible = false
@@ -292,7 +293,6 @@ muteIcon.onClick = new OnClick (() => {
     log ('clicked mute icon')
     muteIcon.visible = false
     soundIcon.visible = true
-    AudioSource.play = true 
     treeText.visible = false
     shareText.visible = false
     pictureText.visible = false

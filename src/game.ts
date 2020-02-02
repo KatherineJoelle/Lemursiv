@@ -15,6 +15,7 @@ import Script12 from "../28352c3a-cc20-4ab4-b4b8-a4562a6b0d4d/src/item"
 import Script13 from "../4c3b4f56-9329-4230-9d43-4f94fbf6771d/src/item"
 import { SmokeSource, ThrowSmoke } from "./modules/smokeSource";
 import { SmokeSystem } from "./modules/smoke";
+import sounds from "./sounds"
 import {
   swatchZUnselected,
   swatchScale,
@@ -41,6 +42,8 @@ const transform = new Transform({
   scale: new Vector3(1, 1, 1)
 })
 _scene.addComponentOrReplace(transform)
+
+
 
 ////////////////////////////////////////////////////////////////////////////
 //add origin of clouds
@@ -86,6 +89,13 @@ const gltfShape28 = new GLTFShape("models/ocean.glb")
 gltfShape28.visible = true
 ocean.addComponentOrReplace(gltfShape28)
 
+const rainforest2 = new AudioClip('sounds/rainforest.mp3')
+const audioSource23 = new AudioSource(rainforest2)
+ocean.addComponent(audioSource23)
+audioSource23.playing = true
+audioSource23.loop = true
+audioSource23.volume = 1
+
 const terrain = new Entity('terrain')
 engine.addEntity(terrain)
 terrain.setParent(_scene)
@@ -100,6 +110,12 @@ gltfShape.withCollisions = true
 gltfShape.visible = true
 terrain.addComponentOrReplace(gltfShape)
 
+const ambientsound = new AudioClip('sounds/rainforest.mp3')
+const audioSource0 = new AudioSource(ambientsound)
+terrain.addComponent(audioSource0)
+audioSource0.playing = true 
+audioSource0.loop = true
+audioSource0.volume = 1
 ////////////////////////////////////////////////////////////////////////////
 // Add builder imported items 
 ////////////////////////////////////////////////////////////////////////////
@@ -829,6 +845,13 @@ gltfShape8.withCollisions = true
 gltfShape8.visible = true
 ayeayeAnimated.addComponentOrReplace(gltfShape8)
 
+const ayeayesound = new AudioClip('sounds/Aye-aye_edited.mp3')
+const audioSource = new AudioSource(ayeayesound)
+ayeayeAnimated.addComponent(audioSource)
+audioSource.playing = true 
+audioSource.loop = true
+audioSource.volume = 0.5
+
 const blackblueeyedLemuri = new Entity('blackblueeyedLemuri')
 engine.addEntity(blackblueeyedLemuri)
 blackblueeyedLemuri.setParent(_scene)
@@ -842,6 +865,13 @@ const gltfShape9 = new GLTFShape("models/blackBlueEyed_lemuridae_animated.glb")
 gltfShape9.withCollisions = true
 gltfShape9.visible = true
 blackblueeyedLemuri.addComponentOrReplace(gltfShape9)
+
+const lemursound = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource2 = new AudioSource(lemursound)
+blackblueeyedLemuri.addComponent(audioSource2)
+audioSource2.playing = true 
+audioSource2.loop = true
+audioSource2.volume = 0.5
 
 const easternwoollylemurA = new Entity('easternwoollylemurA')
 engine.addEntity(easternwoollylemurA)
@@ -857,6 +887,13 @@ gltfShape10.withCollisions = true
 gltfShape10.visible = true
 easternwoollylemurA.addComponentOrReplace(gltfShape10)
 
+const lemursound2 = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource10 = new AudioSource(lemursound2)
+easternwoollylemurA.addComponent(audioSource10)
+audioSource10.playing = true
+audioSource10.loop = true
+audioSource10.volume = 0.5
+
 const fossaAnimated = new Entity('fossaAnimated')
 engine.addEntity(fossaAnimated)
 fossaAnimated.setParent(_scene)
@@ -871,6 +908,13 @@ gltfShape11.withCollisions = true
 gltfShape11.visible = true
 fossaAnimated.addComponentOrReplace(gltfShape11)
 
+const fossasound = new AudioClip('sounds/fossa_edited.mp3')
+const audioSource3 = new AudioSource(fossasound)
+fossaAnimated.addComponent(audioSource3)
+audioSource3.playing = true 
+audioSource3.loop = true
+audioSource3.volume = 1
+
 const greymouselemurAnima = new Entity('greymouselemurAnima')
 engine.addEntity(greymouselemurAnima)
 greymouselemurAnima.setParent(_scene)
@@ -884,6 +928,13 @@ const gltfShape12 = new GLTFShape("models/greyMouseLemur_animated.glb")
 gltfShape12.withCollisions = true
 gltfShape12.visible = true
 greymouselemurAnima.addComponentOrReplace(gltfShape12)
+
+const mouselemursound = new AudioClip('sounds/mouselemur_edited.mp3')
+const audioSource4 = new AudioSource(mouselemursound)
+greymouselemurAnima.addComponent(audioSource4)
+audioSource4.playing = true 
+audioSource4.loop = true
+audioSource4.volume = 1
 
 const madagascarmillipede = new Entity('madagascarmillipede')
 engine.addEntity(madagascarmillipede)
@@ -913,11 +964,18 @@ gltfShape14.withCollisions = true
 gltfShape14.visible = true
 paintedmantellafrog.addComponentOrReplace(gltfShape14)
 
+const frogsound = new AudioClip('sounds/frog_edited.mp3')
+const audioSource5 = new AudioSource(frogsound)
+paintedmantellafrog.addComponent(audioSource5)
+audioSource5.playing = true 
+audioSource5.loop = true
+audioSource5.volume = 0.5
+
 const pantherchameleonAni = new Entity('pantherchameleonAni')
 engine.addEntity(pantherchameleonAni)
 pantherchameleonAni.setParent(_scene)
 const transform79 = new Transform({
-  position: new Vector3(109.3748779296875, 4.258784294128418, 115.24503326416016),
+  position: new Vector3(109.3748779296875, 4.758784294128418, 115.24503326416016),
   rotation: new Quaternion(0.26053303480148315, -0.19420413672924042, 0.10213147848844528, 0.9402003288269043),
   scale: new Vector3(0.05380754917860031, 0.05380745977163315, 0.05380736663937569)
 })
@@ -926,6 +984,12 @@ const gltfShape15 = new GLTFShape("models/pantherChameleon_animated.glb")
 gltfShape15.withCollisions = true
 gltfShape15.visible = true
 pantherchameleonAni.addComponentOrReplace(gltfShape15)
+
+//const slurpsound = new AudioClip('sounds/chameleon_edited.mp3')
+//const audioSource6 = new AudioSource(slurpsound)
+//pantherchameleonAni.addComponent(audioSource6)
+//audioSource6.playing = true 
+//audioSource6.loop = true
 
 const tomatofrogAnimated = new Entity('tomatofrogAnimated')
 engine.addEntity(tomatofrogAnimated)
@@ -941,6 +1005,13 @@ gltfShape16.withCollisions = true
 gltfShape16.visible = true
 tomatofrogAnimated.addComponentOrReplace(gltfShape16)
 
+const frogsound2 = new AudioClip('sounds/frog_edited.mp3')
+const audioSource11 = new AudioSource(frogsound2)
+tomatofrogAnimated.addComponent(audioSource11)
+audioSource11.playing = true
+audioSource11.loop = true
+audioSource11.volume = 0.5
+
 const satanicgeckoAnimate = new Entity('satanicgeckoAnimate')
 engine.addEntity(satanicgeckoAnimate)
 satanicgeckoAnimate.setParent(_scene)
@@ -954,6 +1025,13 @@ const gltfShape17 = new GLTFShape("models/satanicGecko_animated.glb")
 gltfShape17.withCollisions = true
 gltfShape17.visible = true
 satanicgeckoAnimate.addComponentOrReplace(gltfShape17)
+
+const geckosound = new AudioClip('sounds/gecko_edited.mp3')
+const audioSource7 = new AudioSource(geckosound)
+satanicgeckoAnimate.addComponent(audioSource7)
+audioSource7.playing = true 
+audioSource7.loop = true
+audioSource7.volume = 0.5
 
 const sifakaLemurAnimate = new Entity('sifakaLemurAnimate')
 engine.addEntity(sifakaLemurAnimate)
@@ -969,6 +1047,13 @@ gltfShape18.withCollisions = true
 gltfShape18.visible = true
 sifakaLemurAnimate.addComponentOrReplace(gltfShape18)
 
+const lemursound3 = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource12 = new AudioSource(lemursound3)
+sifakaLemurAnimate.addComponent(audioSource12)
+audioSource12.playing = true
+audioSource12.loop = true
+audioSource12.volume = 0.5
+
 const rringtailedlemurAni = new Entity('rringtailedlemurAni')
 engine.addEntity(rringtailedlemurAni)
 rringtailedlemurAni.setParent(_scene)
@@ -982,6 +1067,13 @@ const gltfShape19 = new GLTFShape("models/RringTailedLemur_animated.glb")
 gltfShape19.withCollisions = true
 gltfShape19.visible = true
 rringtailedlemurAni.addComponentOrReplace(gltfShape19)
+
+const lemursound4 = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource13 = new AudioSource(lemursound4)
+rringtailedlemurAni.addComponent(audioSource13)
+audioSource13.playing = true
+audioSource13.loop = true
+audioSource13.volume = 0.5
 
 const madagascarmillipede2 = new Entity('madagascarmillipede2')
 engine.addEntity(madagascarmillipede2)
@@ -1005,6 +1097,13 @@ const transform85 = new Transform({
 })
 paintedmantellafrog2.addComponentOrReplace(transform85)
 
+const frogsound3 = new AudioClip('sounds/frog_edited.mp3')
+const audioSource14 = new AudioSource(frogsound3)
+paintedmantellafrog2.addComponent(audioSource14)
+audioSource14.playing = true
+audioSource14.loop = true
+audioSource14.volume = 0.5
+
 const tomatofrogAnimated2 = new Entity('tomatofrogAnimated2')
 engine.addEntity(tomatofrogAnimated2)
 tomatofrogAnimated2.setParent(_scene)
@@ -1015,6 +1114,13 @@ const transform86 = new Transform({
   scale: new Vector3(0.09194191545248032, 0.09194183349609375, 0.09194191545248032)
 })
 tomatofrogAnimated2.addComponentOrReplace(transform86)
+
+const frogsound4 = new AudioClip('sounds/frog_edited.mp3')
+const audioSource15 = new AudioSource(frogsound4)
+tomatofrogAnimated2.addComponent(audioSource15)
+audioSource15.playing = true
+audioSource15.loop = true
+audioSource15.volume = 0.5
 
 const rringtailedlemurAni2 = new Entity('rringtailedlemurAni2')
 engine.addEntity(rringtailedlemurAni2)
@@ -1027,6 +1133,13 @@ const transform87 = new Transform({
 })
 rringtailedlemurAni2.addComponentOrReplace(transform87)
 
+const lemursound5 = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource16 = new AudioSource(lemursound5)
+rringtailedlemurAni2.addComponent(audioSource16)
+audioSource16.playing = true
+audioSource16.loop = true
+audioSource16.volume = 0.5
+
 const rringtailedlemurAni3 = new Entity('rringtailedlemurAni3')
 engine.addEntity(rringtailedlemurAni3)
 rringtailedlemurAni3.setParent(_scene)
@@ -1038,6 +1151,13 @@ const transform88 = new Transform({
 })
 rringtailedlemurAni3.addComponentOrReplace(transform88)
 
+const lemursound6 = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource17 = new AudioSource(lemursound6)
+rringtailedlemurAni3.addComponent(audioSource17)
+audioSource17.playing = true
+audioSource17.loop = true
+audioSource17.volume = 0.5
+
 const rringtailedlemurAni5 = new Entity('rringtailedlemurAni5')
 engine.addEntity(rringtailedlemurAni5)
 rringtailedlemurAni5.setParent(_scene)
@@ -1048,6 +1168,13 @@ const transform89 = new Transform({
   scale: new Vector3(1.0000261068344116, 1, 1.0000261068344116)
 })
 rringtailedlemurAni5.addComponentOrReplace(transform89)
+
+const lemursound7 = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource18 = new AudioSource(lemursound7)
+rringtailedlemurAni5.addComponent(audioSource18)
+audioSource18.playing = true
+audioSource18.loop = true
+audioSource18.volume = 0.5
 
 const lowlandstreakedtenre = new Entity('lowlandstreakedtenre')
 engine.addEntity(lowlandstreakedtenre)
@@ -1063,6 +1190,13 @@ gltfShape20.withCollisions = true
 gltfShape20.visible = true
 lowlandstreakedtenre.addComponentOrReplace(gltfShape20)
 
+const tenrecsound = new AudioClip('sounds/tenrec_edited.mp3')
+const audioSource8 = new AudioSource(tenrecsound)
+lowlandstreakedtenre.addComponent(audioSource8)
+audioSource8.playing = true 
+audioSource8.loop = true
+audioSource8.volume = 0.5
+
 const sifakaLemurAnimate2 = new Entity('sifakaLemurAnimate2')
 engine.addEntity(sifakaLemurAnimate2)
 sifakaLemurAnimate2.setParent(_scene)
@@ -1073,6 +1207,13 @@ const transform122 = new Transform({
   scale: new Vector3(0.6165609359741211, 0.6165599226951599, 0.6165609359741211)
 })
 sifakaLemurAnimate2.addComponentOrReplace(transform122)
+
+const lemursound8 = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource19 = new AudioSource(lemursound8)
+sifakaLemurAnimate2.addComponent(audioSource19)
+audioSource19.playing = true
+audioSource19.loop = true
+audioSource19.volume = 0.5
 
 const blackblueeyedLemuri2 = new Entity('blackblueeyedLemuri2')
 engine.addEntity(blackblueeyedLemuri2)
@@ -1085,6 +1226,13 @@ const transform123 = new Transform({
 })
 blackblueeyedLemuri2.addComponentOrReplace(transform123)
 
+const lemursound20 = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource20 = new AudioSource(lemursound20)
+blackblueeyedLemuri2.addComponent(audioSource20)
+audioSource20.playing = true
+audioSource20.loop = true
+audioSource20.volume = 0.5
+
 const greymouselemurAnima2 = new Entity('greymouselemurAnima2')
 engine.addEntity(greymouselemurAnima2)
 greymouselemurAnima2.setParent(_scene)
@@ -1095,6 +1243,13 @@ const transform124 = new Transform({
   scale: new Vector3(0.2264421284198761, 0.22644218802452087, 0.2264423966407776)
 })
 greymouselemurAnima2.addComponentOrReplace(transform124)
+
+const mouselemursound2 = new AudioClip('sounds/mouselemur.mp3')
+const audioSource21 = new AudioSource(mouselemursound2)
+greymouselemurAnima2.addComponent(audioSource21)
+audioSource21.playing = true
+audioSource21.loop = true
+audioSource21.volume = 0.5
 
 const easternwoollylemurA2 = new Entity('easternwoollylemurA2')
 engine.addEntity(easternwoollylemurA2)
@@ -1107,6 +1262,13 @@ const transform125 = new Transform({
 })
 easternwoollylemurA2.addComponentOrReplace(transform125)
 
+const lemursound9 = new AudioClip('sounds/lemur_edited.mp3')
+const audioSource22 = new AudioSource(lemursound9)
+easternwoollylemurA2.addComponent(audioSource22)
+audioSource22.playing = true
+audioSource22.loop = true
+audioSource22.volume = 0.5
+
 const pantherchameleonAni2 = new Entity('pantherchameleonAni2')
 engine.addEntity(pantherchameleonAni2)
 pantherchameleonAni2.setParent(_scene)
@@ -1118,18 +1280,10 @@ const transform127 = new Transform({
 })
 pantherchameleonAni2.addComponentOrReplace(transform127)
 
+//pantherchameleonAni2.addComponent(audioSource6)
+//audioSource6.playing = true
+//audioSource6.loop = true 
 
-// Sound
-
-const ambientSound = new Entity('ambientSound')
-engine.addEntity(ambientSound)
-ambientSound.setParent(_scene)
-const transform90 = new Transform({
-  position: new Vector3(64, 3.5, 64),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1, 1, 1)
-})
-ambientSound.addComponentOrReplace(transform90)
 
 // Message Bubbles 
 
@@ -1639,9 +1793,9 @@ scroll3.addComponentOrReplace(transform173)
 // PIXEL ART CENTRES
 
 import {PixelInstance} from './pixelinstance'
-const station1 = new PixelInstance(new Vector3(81.50196838378906, 3.2319021224975586, 72.0679702758789),new Quaternion(-1.5394153601527394e-15, -0.7071068286895752, 8.429369557916289e-8, 0.7071068286895752))
+const station1 = new PixelInstance(new Vector3(25.50196838378906, 0.62319021224975586, 110.0679702758789),new Quaternion(-1.5394153601527394e-15, 1.1571068286895752, 8.429369557916289e-8, 0.7071068286895752))
 const station2 = new PixelInstance(new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
-const station3 = new PixelInstance(new Vector3(107.12619018554688, 4.097695350646973, 114.86958312988281),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
+const station3 = new PixelInstance(new Vector3(105.12619018554688, 2.397695350646973, 111.86958312988281),new Quaternion(4.1924393356208107e-16, -0.5275349736213684, 3.370685419668007e-8, 0.95919269323349))
 
 
 
@@ -1913,14 +2067,6 @@ const transform155 = new Transform({
 })
 tools.addComponentOrReplace(transform155)
 
-
-
-
-//SCROLL
-
-
-
-//CLICK AREA
 
 
 
@@ -2237,9 +2383,16 @@ const transform205 = new Transform({
 })
 buhoxxxx.addComponentOrReplace(transform205)
 const gltfShape25 = new GLTFShape("models/BUHOXXXX.glb")
-gltfShape25.withCollisions = true
+gltfShape25.withCollisions = false
 gltfShape25.visible = true
 buhoxxxx.addComponentOrReplace(gltfShape25)
+
+const owlsound = new AudioClip('sounds/owl_edited.mp3')
+const audioSource9 = new AudioSource(owlsound)
+buhoxxxx.addComponent(audioSource9)
+audioSource9.playing = true 
+audioSource9.loop = true
+audioSource9.volume = 0.5
 
 const buhocollider = new Entity('buhocollider')
 engine.addEntity(buhocollider)
@@ -2288,7 +2441,7 @@ script10.init(options)
 script11.init(options)
 script12.init(options)
 script13.init(options)
-script1.spawn(ambientSound, {"sound":"Birds","active":true,"loop":true}, createChannel(channelId, ambientSound, channelBus))
+
 script2.spawn(messageBubble, {"text":"Hi, I'm an eastern \nwoolly lemur! \nI live in trees but \nthere aren't so many\non my island anymore. ","fontSize":12}, createChannel(channelId, messageBubble, channelBus))
 script2.spawn(messageBubble2, {"text":"Hello and welcome\nto Pic Boby, I'm a \ngrey mouse lemur!","fontSize":12}, createChannel(channelId, messageBubble2, channelBus))
 script2.spawn(messageBubble3, {"text":"Hello! I'm a painted\nmantella frog. I'm \nbeautiful but toxic, \nbe careful with me.","fontSize":12}, createChannel(channelId, messageBubble3, channelBus))
