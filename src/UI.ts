@@ -13,6 +13,7 @@ export class LemursivUI extends UICanvas
     {
         super()
         this.events = events
+    
 
 const rect = new UIContainerRect(this)
 rect.positionX = 648
@@ -288,6 +289,7 @@ soundIcon.onClick = new OnClick (() => {
     
     this.events.fireEvent(new MuteScene())
     
+    
 })
 
 const muteIcon = new UIImage(this, imageTexture)
@@ -312,8 +314,9 @@ muteIcon.onClick = new OnClick (() => {
     infoText.visible = false
     edenFooter.visible = false
     rectangle.visible = false
-
+    
     this.events.fireEvent(new UnmuteScene())
+    
 })
 
 

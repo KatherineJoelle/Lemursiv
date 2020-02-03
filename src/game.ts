@@ -92,8 +92,8 @@ events.addListener(MuteScene,this,()=>{
 
 
 //
-const events2 = new EventManager()
-events.addListener(UnmuteScene,this,()=>{
+
+events.addListener(UnmuteScene,null,()=>{
     audioSource0.playing = true
     audioSource.playing = true
     audioSource2.playing = true
@@ -123,7 +123,7 @@ events.addListener(UnmuteScene,this,()=>{
 
 //create a UI class and pass the events manager variable to it
 const display = new LemursivUI(events)
-const display2 = new LemursivUI(events2)
+
 
 
 
