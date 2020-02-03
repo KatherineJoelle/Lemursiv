@@ -1,26 +1,34 @@
-import audiosources
+import {MuteScene, UnmuteScene} from './game'
 
 
 //create canvas for UI
 
-const canvas = new UICanvas()
+export class LemursivUI extends UICanvas
+{
 
-const rect = new UIContainerRect(canvas)
+    events:EventManager
+
+    constructor(events:EventManager)
+    {
+        super()
+        this.events = events
+
+const rect = new UIContainerRect(this)
 rect.positionX = 648
 rect.vAlign = 'center'
 rect.width = '60px'
 rect.height = '360px'
 rect.color =  new Color4(0.5725, 0.6392, 0.2666, 1)
 
-canvas.visible = true
+this.visible = true
 
-//add icons to canvas
+//add icons to this
 
 let imageAtlas = "images/Lemursiv_icons.png"
 let imageTexture = new Texture(imageAtlas)
 
 //add tree icon
-const treeButton = new UIImage(canvas, imageTexture)
+const treeButton = new UIImage(this, imageTexture)
 treeButton.sourceLeft = 300
 treeButton.sourceTop = 1
 treeButton.sourceWidth = 100
@@ -42,7 +50,7 @@ treeButton.onClick = new OnClick(() => {
     
 })
 
-const treeButton2 = new UIImage(canvas, imageTexture)
+const treeButton2 = new UIImage(this, imageTexture)
 treeButton2.sourceLeft = 200
 treeButton2.sourceTop = 1
 treeButton2.sourceWidth = 100  
@@ -66,7 +74,7 @@ treeButton2.onClick = new OnClick(() => {
 })
 
 //add picture icon
-const pictureButton = new UIImage(canvas, imageTexture)
+const pictureButton = new UIImage(this, imageTexture)
 pictureButton.sourceLeft = 1
 pictureButton.sourceTop = 100
 pictureButton.sourceWidth = 98
@@ -87,7 +95,7 @@ pictureButton.onClick = new OnClick(() => {
 
 })
 
-const pictureButton2 = new UIImage(canvas, imageTexture)
+const pictureButton2 = new UIImage(this, imageTexture)
 pictureButton2.sourceLeft = 101
 pictureButton2.sourceTop = 100
 pictureButton2.sourceWidth = 98
@@ -112,7 +120,7 @@ pictureButton2.onClick = new OnClick(() => {
 })
 
 //add events button
-const eventsButton = new UIImage(canvas, imageTexture)
+const eventsButton = new UIImage(this, imageTexture)
 eventsButton.sourceLeft = 300
 eventsButton.sourceTop = 100
 eventsButton.sourceWidth = 98
@@ -133,7 +141,7 @@ eventsButton.onClick = new OnClick(() => {
 
 })
 
-const eventsButton2 = new UIImage(canvas, imageTexture)
+const eventsButton2 = new UIImage(this, imageTexture)
 eventsButton2.sourceLeft = 200
 eventsButton2.sourceTop = 100
 eventsButton2.sourceWidth = 98
@@ -158,7 +166,7 @@ eventsButton2.onClick = new OnClick(() => {
 })
 
 //add info button
-const infoButton = new UIImage(canvas, imageTexture)
+const infoButton = new UIImage(this, imageTexture)
 infoButton.sourceLeft = 99
 infoButton.sourceTop = 198.3
 infoButton.sourceWidth = 100.5
@@ -179,7 +187,7 @@ infoButton.onClick = new OnClick (() => {
 
 })
 
-const infoButton2 = new UIImage(canvas, imageTexture)
+const infoButton2 = new UIImage(this, imageTexture)
 infoButton2.sourceLeft = 1
 infoButton2.sourceTop = 200
 infoButton2.sourceWidth = 98
@@ -206,7 +214,7 @@ infoButton2.onClick = new OnClick (() => {
 
 
 //add share icon
-const shareIcon = new UIImage(canvas, imageTexture)
+const shareIcon = new UIImage(this, imageTexture)
 shareIcon.sourceLeft = 300
 shareIcon.sourceTop = 199
 shareIcon.sourceWidth = 100
@@ -227,7 +235,7 @@ shareIcon.onClick = new OnClick (() => {
    
 })
 
-const shareIcon2 = new UIImage(canvas, imageTexture)
+const shareIcon2 = new UIImage(this, imageTexture)
 shareIcon2.sourceLeft = 200
 shareIcon2.sourceTop = 199
 shareIcon2.sourceWidth = 100
@@ -253,7 +261,7 @@ shareIcon2.onClick = new OnClick (() => {
 
 //add sound icon
 
-const soundIcon = new UIImage(canvas, imageTexture)
+const soundIcon = new UIImage(this, imageTexture)
 soundIcon.sourceLeft = 299
 soundIcon.sourceTop = 298
 soundIcon.sourceWidth = 100.5
@@ -266,6 +274,7 @@ soundIcon.visible = true
 soundIcon.isPointerBlocker = true
 soundIcon.onClick = new OnClick (() => {
     log ('clicked sound icon')
+
     soundIcon.visible = false
     muteIcon.visible = true
     treeText.visible = false
@@ -275,10 +284,12 @@ soundIcon.onClick = new OnClick (() => {
     infoText.visible = false
     edenFooter.visible = false
     rectangle.visible = false
-
+    
+    this.events.fireEvent(new MuteScene())
+    
 }) //line above is a stub; all audiosources will need to be deactivated manually once they've been added in 
 
-const muteIcon = new UIImage(canvas, imageTexture)
+const muteIcon = new UIImage(this, imageTexture)
 muteIcon.sourceLeft = 199
 muteIcon.sourceTop = 298
 muteIcon.sourceWidth = 100
@@ -300,10 +311,10 @@ muteIcon.onClick = new OnClick (() => {
     infoText.visible = false
     edenFooter.visible = false
     rectangle.visible = false
+    this.events.fireEvent(new UnmuteScene())
 })//line above is a stub; all audiosources will need to be deactivated manually once they've been added in 
 
 
-})
 
 
 
@@ -313,8 +324,8 @@ muteIcon.onClick = new OnClick (() => {
 
 
 
-//create new container inside canvas for pop ups
-const rectangle = new UIContainerRect(canvas)
+//create new container inside this for pop ups
+const rectangle = new UIContainerRect(this)
 rectangle.adaptHeight = true
 rectangle.adaptWidth = true
 rectangle.positionX = 300
@@ -332,7 +343,7 @@ let textTexture = new Texture(textAtlas)
 //insert pop ups 
 //add tree pop up
 
-const treeText = new UIImage(canvas, textTexture)
+const treeText = new UIImage(this, textTexture)
 treeText.sourceLeft = 1
 treeText.sourceTop = 1
 treeText.sourceWidth = 455
@@ -350,7 +361,7 @@ treeText.visible = false
 
 //add footer that will be reused in each pop-up
 
-const edenFooter = new UIImage(canvas, textTexture)
+const edenFooter = new UIImage(this, textTexture)
 edenFooter.sourceLeft = 567
 edenFooter.sourceTop = 800
 edenFooter.sourceWidth = 455
@@ -365,7 +376,7 @@ edenFooter.visible = false
 
 //add pictures pop-up
 
-const pictureText = new UIImage(canvas, textTexture)
+const pictureText = new UIImage(this, textTexture)
 pictureText.sourceLeft = 567
 pictureText.sourceTop = 1
 pictureText.sourceWidth = 455
@@ -378,7 +389,7 @@ pictureText.visible = false
 
 //add events pop-up
 
-const eventsText = new UIImage(canvas, textTexture)
+const eventsText = new UIImage(this, textTexture)
 eventsText.sourceLeft = 1
 eventsText.sourceTop = 300
 eventsText.sourceWidth = 455
@@ -392,7 +403,7 @@ eventsText.visible = false
 
 //add info pop-up
 
-const infoText = new UIImage(canvas, textTexture)
+const infoText = new UIImage(this, textTexture)
 infoText.sourceLeft = 567
 infoText.sourceTop = 300
 infoText.sourceWidth = 455
@@ -405,7 +416,7 @@ infoText.visible = false
 
 //add share pop-up
 
-const shareText = new UIImage (canvas, textTexture)
+const shareText = new UIImage (this, textTexture)
 shareText.sourceLeft = 2
 shareText.sourceTop = 600
 shareText.sourceWidth = 455
@@ -415,4 +426,8 @@ shareText.positionY = 110
 shareText.width = 450
 shareText.height = 400
 shareText.visible = false 
+
+
+    }
+}
 

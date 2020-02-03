@@ -15,24 +15,9 @@ import Script12 from "../28352c3a-cc20-4ab4-b4b8-a4562a6b0d4d/src/item"
 import Script13 from "../4c3b4f56-9329-4230-9d43-4f94fbf6771d/src/item"
 import { SmokeSource, ThrowSmoke } from "./modules/smokeSource";
 import { SmokeSystem } from "./modules/smoke";
-import sounds from "./sounds"
-import {
-  swatchZUnselected,
-  swatchScale,
-  Swatch,
-  swatches,
-  GrowSwatches
-} from './modules/swatches'
-import {
-  Pixel,
-  pixels,
-  CheckServer,
-  getFromServer,
-  wallPixelTransparentMaterial,
-  wallPixelColorMaterial
-} from './modules/pixels'
-import { apiUrl, refreshInterval, swatchColors, wallBlocksX, wallBlocksY, wallWidth, wallHeight, wallPixelZ, wallPixelScale, paletteColor, wallOffsetX, wallOffsetY, blankColor } from "./params";
 
+
+import {LemursivUI} from './UI'
 
 const _scene = new Entity('_scene')
 engine.addEntity(_scene)
@@ -43,6 +28,39 @@ const transform = new Transform({
 })
 _scene.addComponentOrReplace(transform)
 
+
+
+
+//////////////////////////// CUSTOM EVENTS
+
+//create a custom event
+@EventConstructor()
+export class MuteScene{
+  constructor(){}
+}
+
+//create a custom event
+@EventConstructor()
+export class UnmuteScene{
+  constructor(){}
+}
+
+//
+const events = new EventManager()
+events.addListener(MuteScene,this,()=>{
+  audioSource20.playing = false
+  //and so on
+})
+
+events.addListener(UnmuteScene,this,()=>{
+  audioSource20.playing = true
+  //and so on
+})
+//////////////////////////// CUSTOM EVENTS
+
+
+//create a UI class and pass the events manager variable to it
+const display = new LemursivUI(events)
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -1793,6 +1811,7 @@ scroll3.addComponentOrReplace(transform173)
 // PIXEL ART CENTRES
 
 import {PixelInstance} from './pixelinstance'
+import { LemursivLeaderboardSystem } from './lemursivLeaderboard'
 const station1 = new PixelInstance(new Vector3(25.50196838378906, 0.62319021224975586, 110.0679702758789),new Quaternion(-1.5394153601527394e-15, 1.1571068286895752, 8.429369557916289e-8, 0.7071068286895752))
 const station2 = new PixelInstance(new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
 const station3 = new PixelInstance(new Vector3(105.12619018554688, 2.397695350646973, 111.86958312988281),new Quaternion(4.1924393356208107e-16, -0.5275349736213684, 3.370685419668007e-8, 0.95919269323349))
@@ -2537,14 +2556,29 @@ script2.spawn(messageBubble23, {"text":"Hello! I'm a Madagascar\nLong Eared Owl,
 script5.spawn(scroll5, {"text":"A Madagascar Long\nEared Owl nests here. \nWait for him and he will \ngive you a tour of his \nisland. ","fontSize":36}, createChannel(channelId, scroll5, channelBus))
 script2.spawn(messageBubble24, {"text":"You found me!\nI'm a Panther \nChameleon, \nslurp! ","fontSize":15}, createChannel(channelId, messageBubble24, channelBus))
 script12.spawn(signpostTree15, {"text":"Some text","fontSize":20}, createChannel(channelId, signpostTree15, channelBus))
-script3.spawn(signpostTree18, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree18, channelBus))
-script3.spawn(signpostTree19, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree19, channelBus))
-script3.spawn(signpostTree20, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree20, channelBus))
-script3.spawn(signpostTree21, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree21, channelBus))
+
+var sign18Channel = createChannel(channelId, signpostTree18, channelBus)
+script3.spawn(signpostTree18, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign18Channel)
+
+var sign19Channel = createChannel(channelId, signpostTree18, channelBus)
+script3.spawn(signpostTree19, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign19Channel)
+
+var sign20Channel = createChannel(channelId, signpostTree18, channelBus)
+script3.spawn(signpostTree20, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign20Channel)
+
+var sign21Channel = createChannel(channelId, signpostTree18, channelBus)
+script3.spawn(signpostTree21, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign21Channel)
+
+const leaderboardSystem = new LemursivLeaderboardSystem(["signpostTree18", "signpostTree19",'signpostTree20','signpostTree21'],[sign18Channel,sign19Channel,sign20Channel,sign21Channel])
+engine.addSystem(leaderboardSystem)
+
+
+
+
+
 script7.spawn(pirateLever7, {"onActivate":[{"entityName":"raft3","actionId":"goToStart","values":{}}],"onDeactivate":[{"entityName":"raft3","actionId":"goToEnd","values":{}}]}, createChannel(channelId, pirateLever7, channelBus))
 script7.spawn(pirateLever8, {"onActivate":[{"entityName":"raft4","actionId":"goToEnd","values":{}}],"onDeactivate":[{"entityName":"raft4","actionId":"goToStart","values":{}}]}, createChannel(channelId, pirateLever8, channelBus))
 script13.spawn(verticalMagicRock, {"distance":60,"speed":1,"autoStart":true,"onReachEnd":[{"entityName":"verticalMagicRock","actionId":"goToStart","values":{}}],"onReachStart":[{"entityName":"verticalMagicRock","actionId":"goToEnd","values":{}}]}, createChannel(channelId, verticalMagicRock, channelBus))
 script13.spawn(verticalMagicRock2, {"distance":50,"speed":1,"autoStart":true,"onReachEnd":[{"entityName":"verticalMagicRock2","actionId":"goToStart","values":{}}],"onReachStart":[{"entityName":"verticalMagicRock2","actionId":"goToEnd","values":{}}]}, createChannel(channelId, verticalMagicRock2, channelBus))
 
 // Add pixel art centres 
-
