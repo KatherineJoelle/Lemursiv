@@ -15,7 +15,8 @@ import Script12 from "../28352c3a-cc20-4ab4-b4b8-a4562a6b0d4d/src/item"
 import Script13 from "../4c3b4f56-9329-4230-9d43-4f94fbf6771d/src/item"
 import { SmokeSource, ThrowSmoke } from "./modules/smokeSource";
 import { SmokeSystem } from "./modules/smoke";
-import sounds from "./sounds"
+
+
 import {
   swatchZUnselected,
   swatchScale,
@@ -34,6 +35,8 @@ import {
 import { apiUrl, refreshInterval, swatchColors, wallBlocksX, wallBlocksY, wallWidth, wallHeight, wallPixelZ, wallPixelScale, paletteColor, wallOffsetX, wallOffsetY, blankColor } from "./params";
 
 
+import {LemursivUI} from './UI'
+
 const _scene = new Entity('_scene')
 engine.addEntity(_scene)
 const transform = new Transform({
@@ -42,6 +45,85 @@ const transform = new Transform({
   scale: new Vector3(1, 1, 1)
 })
 _scene.addComponentOrReplace(transform)
+
+
+
+
+//////////////////////////// CUSTOM EVENTS
+
+//create a custom event
+@EventConstructor()
+export class MuteScene{
+  constructor(){}
+}
+@EventConstructor()
+export class UnmuteScene{
+  constructor(){}
+}
+
+//
+const events = new EventManager()
+events.addListener(MuteScene,this,()=>{
+    audioSource0.playing = false
+    audioSource.playing = false
+    audioSource2.playing = false
+    audioSource3.playing = false
+    audioSource4.playing = false
+    audioSource5.playing = false
+    audioSource7.playing = false
+    audioSource8.playing = false
+    audioSource9.playing = false
+    audioSource10.playing = false
+    audioSource11.playing = false
+    audioSource12.playing = false
+    audioSource13.playing = false
+    audioSource14.playing = false
+    audioSource15.playing = false
+    audioSource16.playing = false
+    audioSource17.playing = false
+    audioSource18.playing = false
+    audioSource19.playing = false
+    audioSource20.playing = false
+    audioSource21.playing = false
+    audioSource22.playing = false
+    audioSource23.playing = false 
+})
+
+
+
+//
+const events2 = new EventManager()
+events.addListener(UnmuteScene,this,()=>{
+    audioSource0.playing = true
+    audioSource.playing = true
+    audioSource2.playing = true
+    audioSource3.playing = true
+    audioSource4.playing = true
+    audioSource5.playing = true
+    audioSource7.playing = true
+    audioSource8.playing = true
+    audioSource9.playing = true
+    audioSource10.playing = true
+    audioSource11.playing = true
+    audioSource12.playing = true
+    audioSource13.playing = true
+    audioSource14.playing = true
+    audioSource15.playing = true
+    audioSource16.playing = true
+    audioSource17.playing = true
+    audioSource18.playing = true
+    audioSource19.playing = true
+    audioSource20.playing = true
+    audioSource21.playing = true
+    audioSource22.playing = true
+    audioSource23.playing = true
+  })
+//////////////////////////// CUSTOM EVENTS
+
+
+//create a UI class and pass the events manager variable to it
+const display = new LemursivUI(events)
+const display2 = new LemursivUI(events2)
 
 
 
@@ -71,6 +153,10 @@ engine.addEntity(box)
 // Initiate cloud systems
 engine.addSystem(new ThrowSmoke())
 engine.addSystem(new SmokeSystem())
+
+//Add cloud lift
+
+
 
 ////////////////////////////////////////////////////////////////////////////
 //Add static models
@@ -2456,7 +2542,7 @@ script2.spawn(messageBubble11, {"text":"I'm a Panther\nChameleon, \nwe're one of
 script2.spawn(messageBubble12, {"text":"I'm a Lowland\nStreaked Tenrec. \nI'm more closely\nrelated to elephants\nthan to hedgehogs. \nBugs are my favourite\nfood! ","fontSize":12}, createChannel(channelId, messageBubble12, channelBus))
 script3.spawn(signpostTree, {"text":" PIXELS   FOR   MADAGASCAR\n\nin collaboration with Eden Projects","fontSize":20}, createChannel(channelId, signpostTree, channelBus))
 script3.spawn(signpostTree2, {"text":"Lemursiv has been designed so that\nall pixel art created on the island is\nconverted into donations which go \ndirectly to Eden Projects. All visitors \ncan help save Madagascar from\ndeforestation by creating pixel art. ","fontSize":15}, createChannel(channelId, signpostTree2, channelBus))
-script3.spawn(signpostTree3, {"text":" /////","fontSize":15}, createChannel(channelId, signpostTree3, channelBus))
+script3.spawn(signpostTree3, {"text":"Madagascar is more than just an island from\nan animated movie. It's a nation with over 200,000 species\n of plants and animals that don't exist anywhere\nelse in the world. But more than 90% of Madagascar's\noriginal forests have been destroyed, displacing entire\nanimal species and taking away the Malagasy's ability\n to farm and live on the land.","fontSize":12}, createChannel(channelId, signpostTree3, channelBus))
 script3.spawn(signpostTree4, {"text":"For next challenge\n\n\"/goto next\"\n\nin chat window","fontSize":20}, createChannel(channelId, signpostTree4, channelBus))
 script3.spawn(signpostTree5, {"text":"Madagascar used to be part of a \nsupercontinent between Africa and India. \nThen, 88 million years ago, it separated \nbecoming an island and developing an \nextraordinary ecosystem. Some of the many\nendemic plants and animals can be seen on \nthe island here. \n","fontSize":15}, createChannel(channelId, signpostTree5, channelBus))
 script3.spawn(signpostTree6, {"text":"     CREATE   ART   PLANT   TREES\n      PLANT   TREES   SAVE   LIVES\n\n   bringing creativity and charity together\n      in collaboration with Eden Projects","fontSize":20}, createChannel(channelId, signpostTree6, channelBus))
@@ -2546,5 +2632,4 @@ script7.spawn(pirateLever8, {"onActivate":[{"entityName":"raft4","actionId":"goT
 script13.spawn(verticalMagicRock, {"distance":60,"speed":1,"autoStart":true,"onReachEnd":[{"entityName":"verticalMagicRock","actionId":"goToStart","values":{}}],"onReachStart":[{"entityName":"verticalMagicRock","actionId":"goToEnd","values":{}}]}, createChannel(channelId, verticalMagicRock, channelBus))
 script13.spawn(verticalMagicRock2, {"distance":50,"speed":1,"autoStart":true,"onReachEnd":[{"entityName":"verticalMagicRock2","actionId":"goToStart","values":{}}],"onReachStart":[{"entityName":"verticalMagicRock2","actionId":"goToEnd","values":{}}]}, createChannel(channelId, verticalMagicRock2, channelBus))
 
-// Add pixel art centres 
 
