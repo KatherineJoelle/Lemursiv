@@ -47,14 +47,56 @@ export class UnmuteScene{
 
 //
 const events = new EventManager()
-events.addListener(MuteScene,this,()=>{
+events.addListener(MuteScene,null,()=>{
+  audioSource0.playing = false
+  audioSource.playing = false
+  audioSource2.playing = false
+  audioSource3.playing = false
+  audioSource4.playing = false
+  audioSource5.playing = false
+  audioSource7.playing = false
+  audioSource8.playing = false
+  audioSource9.playing = false
+  audioSource10.playing = false
+  audioSource11.playing = false
+  audioSource12.playing = false
+  audioSource13.playing = false
+  audioSource14.playing = false
+  audioSource15.playing = false
+  audioSource16.playing = false
+  audioSource17.playing = false
+  audioSource18.playing = false
+  audioSource19.playing = false
   audioSource20.playing = false
-  //and so on
+  audioSource21.playing = false
+  audioSource22.playing = false
+  audioSource23.playing = false 
 })
 
-events.addListener(UnmuteScene,this,()=>{
-  audioSource20.playing = true
-  //and so on
+events.addListener(UnmuteScene,null,()=>{
+  audioSource0.playing = true
+    audioSource.playing = true
+    audioSource2.playing = true
+    audioSource3.playing = true
+    audioSource4.playing = true
+    audioSource5.playing = true
+    audioSource7.playing = true
+    audioSource8.playing = true
+    audioSource9.playing = true
+    audioSource10.playing = true
+    audioSource11.playing = true
+    audioSource12.playing = true
+    audioSource13.playing = true
+    audioSource14.playing = true
+    audioSource15.playing = true
+    audioSource16.playing = true
+    audioSource17.playing = true
+    audioSource18.playing = true
+    audioSource19.playing = true
+    audioSource20.playing = true
+    audioSource21.playing = true
+    audioSource22.playing = true
+    audioSource23.playing = true
 })
 //////////////////////////// CUSTOM EVENTS
 
