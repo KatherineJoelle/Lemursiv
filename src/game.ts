@@ -984,7 +984,7 @@ const fossaAnimated = new Entity('fossaAnimated')
 engine.addEntity(fossaAnimated)
 fossaAnimated.setParent(_scene)
 const transform75 = new Transform({
-  position: new Vector3(83.63587188720703, 3.0488765239715576, 74.1373519897461),
+  position: new Vector3(83.63587188720703, 2.50488765239715576, 74.1373519897461),
   rotation: new Quaternion(2.8261521100518116e-15, 0.7730104327201843, -9.21500173944878e-8, -0.6343932747840881),
   scale: new Vector3(0.429121732711792, 0.42912203073501587, 0.429121732711792)
 })
@@ -1071,11 +1071,6 @@ gltfShape15.withCollisions = true
 gltfShape15.visible = true
 pantherchameleonAni.addComponentOrReplace(gltfShape15)
 
-//const slurpsound = new AudioClip('sounds/chameleon_edited.mp3')
-//const audioSource6 = new AudioSource(slurpsound)
-//pantherchameleonAni.addComponent(audioSource6)
-//audioSource6.playing = true 
-//audioSource6.loop = true
 
 const tomatofrogAnimated = new Entity('tomatofrogAnimated')
 engine.addEntity(tomatofrogAnimated)
@@ -1366,9 +1361,33 @@ const transform127 = new Transform({
 })
 pantherchameleonAni2.addComponentOrReplace(transform127)
 
-//pantherchameleonAni2.addComponent(audioSource6)
-//audioSource6.playing = true
-//audioSource6.loop = true 
+const pajaromadagascarvuel = new Entity('pajaromadagascarvuel')
+engine.addEntity(pajaromadagascarvuel)
+pajaromadagascarvuel.setParent(_scene)
+const transform230 = new Transform({
+  position: new Vector3(70.19520568847656, 13.31234359741211, 41.00503921508789),
+  rotation: new Quaternion(-6.189903961506429e-16, -0.48178809881210327, 5.743361342069875e-8, 0.8762878179550171),
+  scale: new Vector3(1.000000238418579, 1, 1.000000238418579)
+})
+pajaromadagascarvuel.addComponentOrReplace(transform230)
+const gltfShape29 = new GLTFShape("models/pajaromadagascarvueloCONTINUO.glb")
+gltfShape29.withCollisions = true
+gltfShape29.visible = true
+pajaromadagascarvuel.addComponentOrReplace(gltfShape29)
+
+const pajaromadagascarvuel2 = new Entity('pajaromadagascarvuel2')
+engine.addEntity(pajaromadagascarvuel2)
+pajaromadagascarvuel2.setParent(_scene)
+const transform231 = new Transform({
+  position: new Vector3(1.8665962219238281, 2.4371626377105713, 107.5797119140625),
+  rotation: new Quaternion(1.332206007903275e-15, 0.4090043604373932, -4.875710857277227e-8, 0.9125324487686157),
+  scale: new Vector3(1, 1, 1)
+})
+pajaromadagascarvuel2.addComponentOrReplace(transform231)
+const gltfShape30 = new GLTFShape("models/pajaromadagascarvuelo.glb")
+gltfShape30.withCollisions = true
+gltfShape30.visible = true
+pajaromadagascarvuel2.addComponentOrReplace(gltfShape30)
 
 
 // Message Bubbles 
