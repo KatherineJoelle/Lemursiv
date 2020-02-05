@@ -53,8 +53,12 @@ There are two materials used for the wall:
 transparentTexture = new Texture('textures/transparent-texture.png')
 transparentMaterial = new BasicMaterial()
 
-  constructor(position:Vector3, rotation:Quaternion){
+playerAddress:string
+
+  constructor(playerAddress:string, position:Vector3, rotation:Quaternion){
     super()
+
+    this.playerAddress = playerAddress
 
     this.addComponent(new Transform({
       position: position,
@@ -201,7 +205,7 @@ clickPixel(pix: Entity) {
   let url = `${apiUrl}/api/pixels/pixel`
   let method = 'POST'
   let headers = { 'Content-Type': 'application/json' }
-  let body = JSON.stringify({ x: x, y: y, color: color })
+  let body = JSON.stringify({ x: x, y: y, color: color, pAddress:this.playerAddress })
 
   executeTask(async () => {
     try {

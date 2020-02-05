@@ -1,42 +1,67 @@
+import utils from "../node_modules/decentraland-ecs-utils/index"
+import {apiUrl,headers,leaderboardCount,pollingInterval,updatingLeaderboardText} from './params'
 
 
-export class LemursivLeaderboardSystem implements ISystem{
+export class LemursivLeaderboardSystem extends Entity{
 
     signChannels:IChannel[] = [null]
     signStrings:string[] = [null]
+    leaderBoardText:string = ""
 
     constructor(strings:string[], allsigns:IChannel[]){
+      super()
         this.signStrings = strings
         this.signChannels = allsigns 
+        engine.addEntity(this)
+        this.addComponentOrReplace(new utils.Interval(pollingInterval,this.pollServer))
     }
     
-    update(){
+    pollServer(){
 
-        var data = {
-            1: "test",
-            2: "test2"
-          }
+        var data = ["SeanTrees","KJWalker", "Lastraum"]
+
+        for(var i = 0; i < this.signChannels.length; i++)
+             {
+                this.signChannels[i].sendActions([{"entityName":""+this.signStrings[i],"actionId":"changeText","values":{"newText":updatingLeaderboardText}}])
+             }
 
           /*
-          let url = `${BJGlobals.apiUrl}/${data.action}`
+          this.leaderBoardText = "TOP DONORS \n"
+          let url = `${apiUrl}/top`
             executeTask(async () => {
               try {
                 let response = await fetch(url,{
-                  method: "POST",  
-                  headers: BJGlobals.headers,
+                  method: "GET",  
+                  headers: headers,
                   body: JSON.stringify(data)
                 })
-                let gameData = await response.json()      
-                this.events.fireEvent(new GetServerDataEvent(gameData))
+                for(var i = 0; i < leaderboardCount; i++)
+                {
+                  this.leaderBoardText += "\n" + i + 1 + "."+response[i]
+                }
+
+                for(var i = 0; i < this.signChannels.length; i++)
+                {
+                   this.signChannels[i].sendActions([{"entityName":""+this.signStrings[i],"actionId":"changeText","values":{"newText":this.leaderBoardText}}])
+                }
+
               } catch {
-                BJGlobals.TEST_MODE ? log("failed to reach url") : ""
+                log("failed to reach url")
               }
              })
              */
 
+             ///// this is test data
+             for(var i = 0; i < data.length; i++)
+                {
+                  this.leaderBoardText += "\n" + i + 1 + "."+data[i]
+                }
+
              for(var i = 0; i < this.signChannels.length; i++)
              {
-                this.signChannels[i].sendActions([{"entityName":""+this.signStrings[i],"actionId":"changeText","values":{"newText":"We did it!\nYes!"}}])
+                this.signChannels[i].sendActions([{"entityName":""+this.signStrings[i],"actionId":"changeText","values":{"newText":this.leaderBoardText}}])
              }
+             ////////////////
     }
+
 }

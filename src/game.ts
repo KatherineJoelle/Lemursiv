@@ -1850,13 +1850,33 @@ scroll3.addComponentOrReplace(transform173)
 
 
 
+
+var playerAddress:string
+//eth import
+import { getUserAccount } from '@decentraland/EthereumController'
+function obtainETHAddress()
+{
+executeTask(async () => {
+    try {
+      const address = await getUserAccount()
+      log(address)
+      playerAddress = address.toLowerCase()
+    } catch (error) {
+      log(error)
+      playerAddress = "default"
+    }
+  })
+}
+obtainETHAddress()
+
+const leaderboardSystem = new LemursivLeaderboardSystem(["signpostTree18", "signpostTree19",'signpostTree20','signpostTree21'],[sign18Channel,sign19Channel,sign20Channel,sign21Channel])
 // PIXEL ART CENTRES
 
 import {PixelInstance} from './pixelinstance'
 import { LemursivLeaderboardSystem } from './lemursivLeaderboard'
-const station1 = new PixelInstance(new Vector3(25.50196838378906, 0.62319021224975586, 110.0679702758789),new Quaternion(-1.5394153601527394e-15, 1.1571068286895752, 8.429369557916289e-8, 0.7071068286895752))
-const station2 = new PixelInstance(new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
-const station3 = new PixelInstance(new Vector3(105.12619018554688, 2.397695350646973, 111.86958312988281),new Quaternion(4.1924393356208107e-16, -0.5275349736213684, 3.370685419668007e-8, 0.95919269323349))
+const station1 = new PixelInstance(playerAddress, new Vector3(25.50196838378906, 0.62319021224975586, 110.0679702758789),new Quaternion(-1.5394153601527394e-15, 1.1571068286895752, 8.429369557916289e-8, 0.7071068286895752))
+const station2 = new PixelInstance(playerAddress, new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
+const station3 = new PixelInstance(playerAddress, new Vector3(105.12619018554688, 2.397695350646973, 111.86958312988281),new Quaternion(4.1924393356208107e-16, -0.5275349736213684, 3.370685419668007e-8, 0.95919269323349))
 
 
 
@@ -2610,12 +2630,6 @@ script3.spawn(signpostTree20, {"text":"TOP DONORS \n\n1.************************
 
 var sign21Channel = createChannel(channelId, signpostTree18, channelBus)
 script3.spawn(signpostTree21, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign21Channel)
-
-const leaderboardSystem = new LemursivLeaderboardSystem(["signpostTree18", "signpostTree19",'signpostTree20','signpostTree21'],[sign18Channel,sign19Channel,sign20Channel,sign21Channel])
-engine.addSystem(leaderboardSystem)
-
-
-
 
 
 script7.spawn(pirateLever7, {"onActivate":[{"entityName":"raft3","actionId":"goToStart","values":{}}],"onDeactivate":[{"entityName":"raft3","actionId":"goToEnd","values":{}}]}, createChannel(channelId, pirateLever7, channelBus))

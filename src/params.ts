@@ -24,6 +24,10 @@ export const headers = {
   "Content-Type": "application/json"
 };
 
+export const leaderboardCount = 8
+export const updatingLeaderboardText = "Updating Leaderboard..."
+export const pollingInterval:number = 10000 //in milliseconds when to ping th server
+
 
 /*
 
