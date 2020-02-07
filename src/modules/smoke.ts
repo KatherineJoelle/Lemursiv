@@ -41,11 +41,11 @@ export class SmokeSystem implements ISystem {
 // Function to check if smoke is too far from source
 function isOutOfBounds(transform: Transform) {
   if (
-    transform.position.y > 3 ||
-    transform.position.x > 2 ||
-    transform.position.z > 2 ||
-    transform.position.x < -2 ||
-    transform.position.z < -2
+    transform.position.y > 1.7 ||
+    transform.position.x > 1.5 ||
+    transform.position.z > 20 ||
+    transform.position.x < -1.5 ||
+    transform.position.z < -20
   ) {
     return true
   }
