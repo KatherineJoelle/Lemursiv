@@ -79,7 +79,7 @@ playerAddress:string
 
     this.InitiateWall()
     this.InitiatePalette()
-    getFromServer(this.station)
+    getFromServer()
   }
 
   // lay out all wall pixels
@@ -220,7 +220,7 @@ clickPixel(pix: Entity) {
       log('error sending pixel change')
     }
   })
-  getFromServer(this.station)
+  getFromServer()
 }
 
 }

@@ -25,12 +25,12 @@ export class CheckServer implements ISystem {
       this.timer -= dt
       if (this.timer <0){
         this.timer = refreshInterval
-        getFromServer(this.station)
+        getFromServer()
       }
     }
 }
 
-export function getFromServer(station:number) {
+export function getFromServer() {
 
     let url = `${apiUrl}/api/pixels/station=${this.station}`
   
