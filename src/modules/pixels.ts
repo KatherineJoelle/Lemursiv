@@ -16,8 +16,10 @@ export const pixels = engine.getComponentGroup(Pixel)
 
 export class CheckServer implements ISystem {
     timer: number
-    constructor(timer: number){
+    station: number
+    constructor(timer: number, station:number){
         this.timer = timer
+        this.station = station
     }
     update(dt:number){
       this.timer -= dt
@@ -30,7 +32,7 @@ export class CheckServer implements ISystem {
 
 export function getFromServer() {
 
-    let url = `${apiUrl}/api/pixels`
+    let url = `${apiUrl}/api/pixels/?station=${this.station}`
   
     executeTask(async () => {
       try {
@@ -58,7 +60,7 @@ export function getFromServer() {
         }
         log("got data from server")
       } catch {
-        log("error getting all pixels")
+        log("error getting all pixels for station + " + this.station)
       }
   
      })
