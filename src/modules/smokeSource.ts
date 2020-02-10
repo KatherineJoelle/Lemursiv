@@ -41,7 +41,7 @@ smokeMaterial.alphaTexture = smokeTexture
 // Reusable shape component for smoke puffs
 const smokeShape = new PlaneShape()
 smokeShape; new Transform({
-  position: new Vector3 (8, 0, 8),
+  position: new Vector3 (8, 50, 8),
   scale: new Vector3 (200, 100, 200),
   rotation: new Quaternion(1, 0, 0, 1),
 
@@ -53,7 +53,7 @@ smokeShape; new Transform({
 
 // Spawner object to generate smoke puffs
 export const smokeSpawner = {
-  MAX_POOL_SIZE: 10,
+  MAX_POOL_SIZE: 14,
   pool: [] as Entity[],
 
   getEntityFromPool(): IEntity | null {

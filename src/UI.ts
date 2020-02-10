@@ -1,4 +1,5 @@
-import {MuteScene, UnmuteScene} from './game'
+import {MuteScene} from './game'
+import {UnmuteScene} from './game'
 
 
 //create canvas for UI
@@ -12,6 +13,7 @@ export class LemursivUI extends UICanvas
     {
         super()
         this.events = events
+    
 
 const rect = new UIContainerRect(this)
 rect.positionX = 648
@@ -287,7 +289,8 @@ soundIcon.onClick = new OnClick (() => {
     
     this.events.fireEvent(new MuteScene())
     
-}) //line above is a stub; all audiosources will need to be deactivated manually once they've been added in 
+    
+})
 
 const muteIcon = new UIImage(this, imageTexture)
 muteIcon.sourceLeft = 199
@@ -311,8 +314,10 @@ muteIcon.onClick = new OnClick (() => {
     infoText.visible = false
     edenFooter.visible = false
     rectangle.visible = false
+    
     this.events.fireEvent(new UnmuteScene())
-})//line above is a stub; all audiosources will need to be deactivated manually once they've been added in 
+    
+})
 
 
 

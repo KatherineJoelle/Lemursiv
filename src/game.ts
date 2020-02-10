@@ -17,6 +17,24 @@ import { SmokeSource, ThrowSmoke } from "./modules/smokeSource";
 import { SmokeSystem } from "./modules/smoke";
 
 
+import {
+  swatchZUnselected,
+  swatchScale,
+  Swatch,
+  swatches,
+  GrowSwatches
+} from './modules/swatches'
+import {
+  Pixel,
+  pixels,
+  CheckServer,
+  getFromServer,
+  wallPixelTransparentMaterial,
+  wallPixelColorMaterial
+} from './modules/pixels'
+import { apiUrl, refreshInterval, swatchColors, wallBlocksX, wallBlocksY, wallWidth, wallHeight, wallPixelZ, wallPixelScale, paletteColor, wallOffsetX, wallOffsetY, blankColor } from "./params";
+
+
 import {LemursivUI} from './UI'
 
 const _scene = new Entity('_scene')
@@ -38,8 +56,6 @@ _scene.addComponentOrReplace(transform)
 export class MuteScene{
   constructor(){}
 }
-
-//create a custom event
 @EventConstructor()
 export class UnmuteScene{
   constructor(){}
@@ -47,34 +63,40 @@ export class UnmuteScene{
 
 //
 const events = new EventManager()
-events.addListener(MuteScene,null,()=>{
-  audioSource0.playing = false
-  audioSource.playing = false
-  audioSource2.playing = false
-  audioSource3.playing = false
-  audioSource4.playing = false
-  audioSource5.playing = false
-  audioSource7.playing = false
-  audioSource8.playing = false
-  audioSource9.playing = false
-  audioSource10.playing = false
-  audioSource11.playing = false
-  audioSource12.playing = false
-  audioSource13.playing = false
-  audioSource14.playing = false
-  audioSource15.playing = false
-  audioSource16.playing = false
-  audioSource17.playing = false
-  audioSource18.playing = false
-  audioSource19.playing = false
-  audioSource20.playing = false
-  audioSource21.playing = false
-  audioSource22.playing = false
-  audioSource23.playing = false 
+events.addListener(MuteScene,this,()=>{
+    audioSource0.playing = false
+    audioSource.playing = false
+    audioSource2.playing = false
+    audioSource3.playing = false
+    audioSource4.playing = false
+    audioSource5.playing = false
+    audioSource7.playing = false
+    audioSource8.playing = false
+    audioSource9.playing = false
+    audioSource10.playing = false
+    audioSource11.playing = false
+    audioSource12.playing = false
+    audioSource13.playing = false
+    audioSource14.playing = false
+    audioSource15.playing = false
+    audioSource16.playing = false
+    audioSource17.playing = false
+    audioSource18.playing = false
+    audioSource19.playing = false
+    audioSource20.playing = false
+    audioSource21.playing = false
+    audioSource22.playing = false
+    audioSource23.playing = false 
+    audioSource24.playing = false
+    audioSource25.playing = false 
 })
 
+
+
+//
+
 events.addListener(UnmuteScene,null,()=>{
-  audioSource0.playing = true
+    audioSource0.playing = true
     audioSource.playing = true
     audioSource2.playing = true
     audioSource3.playing = true
@@ -97,12 +119,16 @@ events.addListener(UnmuteScene,null,()=>{
     audioSource21.playing = true
     audioSource22.playing = true
     audioSource23.playing = true
-})
+    audioSource24.playing = true
+    audioSource25.playing = true
+  })
 //////////////////////////// CUSTOM EVENTS
 
 
 //create a UI class and pass the events manager variable to it
 const display = new LemursivUI(events)
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////
@@ -132,6 +158,10 @@ engine.addEntity(box)
 engine.addSystem(new ThrowSmoke())
 engine.addSystem(new SmokeSystem())
 
+//Add cloud lift
+
+
+
 ////////////////////////////////////////////////////////////////////////////
 //Add static models
 ////////////////////////////////////////////////////////////////////////////
@@ -142,7 +172,7 @@ ocean.setParent(_scene)
 const transformc = new Transform({
   position: new Vector3(64, 0.2, 64),
   rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(.95, .95, .95)
+  scale: new Vector3(.9, .9, .9)
 })
 ocean.addComponentOrReplace(transformc)
 const gltfShape28 = new GLTFShape("models/ocean.glb")
@@ -895,9 +925,9 @@ const ayeayeAnimated = new Entity('ayeayeAnimated')
 engine.addEntity(ayeayeAnimated)
 ayeayeAnimated.setParent(_scene)
 const transform72 = new Transform({
-  position: new Vector3(36.99220657348633, 1.48116135597229, 66.4802017211914),
+  position: new Vector3(36.19220657348633, 1.58116135597229, 66.2),
   rotation: new Quaternion(1.3250993591241642e-14, -0.9238796234130859, 1.1013501932666259e-7, 0.3826834261417389),
-  scale: new Vector3(0.25002235174179077, 0.25, 0.25002235174179077)
+  scale: new Vector3(0.2002235174179077, 0.2, 0.2002235174179077)
 })
 ayeayeAnimated.addComponentOrReplace(transform72)
 const gltfShape8 = new GLTFShape("models/ayeAye_animated.glb")
@@ -938,7 +968,7 @@ engine.addEntity(easternwoollylemurA)
 easternwoollylemurA.setParent(_scene)
 const transform74 = new Transform({
   position: new Vector3(53.506561279296875, 7.044552803039551, 69.34246826171875),
-  rotation: new Quaternion(-0.07145221531391144, -0.38328030705451965, -0.029851092025637627, 0.9203802347183228),
+  rotation: new Quaternion(-0.07145221531391144, -0.58328030705451965, 0.06, 0.9203802347183228),
   scale: new Vector3(1.000000238418579, 0.9999994039535522, 1.0000003576278687)
 })
 easternwoollylemurA.addComponentOrReplace(transform74)
@@ -958,7 +988,7 @@ const fossaAnimated = new Entity('fossaAnimated')
 engine.addEntity(fossaAnimated)
 fossaAnimated.setParent(_scene)
 const transform75 = new Transform({
-  position: new Vector3(83.63587188720703, 3.0488765239715576, 74.1373519897461),
+  position: new Vector3(83.63587188720703, 2.70488765239715576, 74.1373519897461),
   rotation: new Quaternion(2.8261521100518116e-15, 0.7730104327201843, -9.21500173944878e-8, -0.6343932747840881),
   scale: new Vector3(0.429121732711792, 0.42912203073501587, 0.429121732711792)
 })
@@ -1035,7 +1065,7 @@ const pantherchameleonAni = new Entity('pantherchameleonAni')
 engine.addEntity(pantherchameleonAni)
 pantherchameleonAni.setParent(_scene)
 const transform79 = new Transform({
-  position: new Vector3(109.3748779296875, 4.758784294128418, 115.24503326416016),
+  position: new Vector3(109.3748779296875, 4.46, 115.24503326416016),
   rotation: new Quaternion(0.26053303480148315, -0.19420413672924042, 0.10213147848844528, 0.9402003288269043),
   scale: new Vector3(0.05380754917860031, 0.05380745977163315, 0.05380736663937569)
 })
@@ -1045,11 +1075,6 @@ gltfShape15.withCollisions = true
 gltfShape15.visible = true
 pantherchameleonAni.addComponentOrReplace(gltfShape15)
 
-//const slurpsound = new AudioClip('sounds/chameleon_edited.mp3')
-//const audioSource6 = new AudioSource(slurpsound)
-//pantherchameleonAni.addComponent(audioSource6)
-//audioSource6.playing = true 
-//audioSource6.loop = true
 
 const tomatofrogAnimated = new Entity('tomatofrogAnimated')
 engine.addEntity(tomatofrogAnimated)
@@ -1316,7 +1341,7 @@ engine.addEntity(easternwoollylemurA2)
 easternwoollylemurA2.setParent(_scene)
 easternwoollylemurA2.addComponentOrReplace(gltfShape10)
 const transform125 = new Transform({
-  position: new Vector3(69.13116455078125, 6.050521373748779, 85.79640197753906),
+  position: new Vector3(69.153116455078125, 6.350521373748779, 85.9),
   rotation: new Quaternion(0.044304557144641876, 0.9040204286575317, 0.09984350204467773, -0.4132983088493347),
   scale: new Vector3(1.0000379085540771, 0.9999983906745911, 1.0000427961349487)
 })
@@ -1340,9 +1365,46 @@ const transform127 = new Transform({
 })
 pantherchameleonAni2.addComponentOrReplace(transform127)
 
-//pantherchameleonAni2.addComponent(audioSource6)
-//audioSource6.playing = true
-//audioSource6.loop = true 
+const bird = new Entity('bird')
+engine.addEntity(bird)
+bird.setParent(_scene)
+const transform230 = new Transform({
+  position: new Vector3(70.19520568847656, 13.31234359741211, 41.00503921508789),
+  rotation: new Quaternion(-6.189903961506429e-16, -0.48178809881210327, 5.743361342069875e-8, 0.8762878179550171),
+  scale: new Vector3(1.000000238418579, 1, 1.000000238418579)
+})
+bird.addComponentOrReplace(transform230)
+const gltfShape29 = new GLTFShape("models/pajaromadagascarvueloCONTINUO.glb")
+gltfShape29.withCollisions = true
+gltfShape29.visible = true
+bird.addComponentOrReplace(gltfShape29)
+
+const birdsound = new AudioClip('sounds/bird.mp3')
+const audioSource24 = new AudioSource(birdsound)
+bird.addComponent(audioSource24)
+audioSource24.playing = true
+audioSource24.loop = true
+audioSource24.volume = 0.5
+
+const bird2 = new Entity('bird2')
+engine.addEntity(bird2)
+bird2.setParent(_scene)
+const transform231 = new Transform({
+  position: new Vector3(1.8665962219238281, 2.4371626377105713, 107.5797119140625),
+  rotation: new Quaternion(1.332206007903275e-15, 0.4090043604373932, -4.875710857277227e-8, 0.9125324487686157),
+  scale: new Vector3(1, 1, 1)
+})
+bird2.addComponentOrReplace(transform231)
+const gltfShape30 = new GLTFShape("models/pajaromadagascarvuelo.glb")
+gltfShape30.withCollisions = true
+gltfShape30.visible = true
+bird2.addComponentOrReplace(gltfShape30)
+
+const audioSource25 = new AudioSource(birdsound)
+bird2.addComponent(audioSource25)
+audioSource25.playing = true
+audioSource.loop = true
+audioSource.volume = 0.5
 
 
 // Message Bubbles 
@@ -1554,7 +1616,7 @@ const signpostTree = new Entity('signpostTree')
 engine.addEntity(signpostTree)
 signpostTree.setParent(_scene)
 const transform104 = new Transform({
-  position: new Vector3(113.22550964355469, 1.9463496208190918, 15.337990760803223),
+  position: new Vector3(113.22550964355469, 2.3463496208190918, 15.337990760803223),
   rotation: new Quaternion(2.227042106568819e-15, 0.7071068286895752, -8.429368847373553e-8, 0.7071068286895752),
   scale: new Vector3(2.7639503479003906, 2.7639095783233643, 2.7639503479003906)
 })
@@ -1604,7 +1666,7 @@ const signpostTree6 = new Entity('signpostTree6')
 engine.addEntity(signpostTree6)
 signpostTree6.setParent(_scene)
 const transform109 = new Transform({
-  position: new Vector3(107.57939910888672, 2.3004698753356934, 9.448402404785156),
+  position: new Vector3(107.57939910888672, 2.3404698753356934, 9.448402404785156),
   rotation: new Quaternion(4.038938966128202e-15, 1, -1.1920927533992653e-7, 0),
   scale: new Vector3(4.394008636474609, 2.525036573410034, 2.5250773429870605)
 })
@@ -1614,7 +1676,7 @@ const signpostTree7 = new Entity('signpostTree7')
 engine.addEntity(signpostTree7)
 signpostTree7.setParent(_scene)
 const transform110 = new Transform({
-  position: new Vector3(102.25533294677734, 1.9463496208190918, 14.715365409851074),
+  position: new Vector3(102.25533294677734, 2.34463496208190918, 14.715365409851074),
   rotation: new Quaternion(-1.1187302847341998e-14, -0.7071068286895752, 8.429368847373553e-8, 0.7071068286895752),
   scale: new Vector3(2.7639594078063965, 2.7639095783233643, 2.7639594078063965)
 })
@@ -1850,33 +1912,12 @@ scroll3.addComponentOrReplace(transform173)
 
 
 
-
-var playerAddress:string
-//eth import
-import { getUserAccount } from '@decentraland/EthereumController'
-function obtainETHAddress()
-{
-executeTask(async () => {
-    try {
-      const address = await getUserAccount()
-      log(address)
-      playerAddress = address.toLowerCase()
-    } catch (error) {
-      log(error)
-      playerAddress = "default"
-    }
-  })
-}
-obtainETHAddress()
-
-const leaderboardSystem = new LemursivLeaderboardSystem(["signpostTree18", "signpostTree19",'signpostTree20','signpostTree21'],[sign18Channel,sign19Channel,sign20Channel,sign21Channel])
 // PIXEL ART CENTRES
 
 import {PixelInstance} from './pixelinstance'
-import { LemursivLeaderboardSystem } from './lemursivLeaderboard'
-const station1 = new PixelInstance(1,playerAddress, new Vector3(25.50196838378906, 0.62319021224975586, 110.0679702758789),new Quaternion(-1.5394153601527394e-15, 1.1571068286895752, 8.429369557916289e-8, 0.7071068286895752))
-const station2 = new PixelInstance(2,playerAddress, new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
-const station3 = new PixelInstance(3,playerAddress, new Vector3(105.12619018554688, 2.397695350646973, 111.86958312988281),new Quaternion(4.1924393356208107e-16, -0.5275349736213684, 3.370685419668007e-8, 0.95919269323349))
+const station1 = new PixelInstance(1,new Vector3(25.50196838378906, 0.62319021224975586, 110.0679702758789),new Quaternion(-1.5394153601527394e-15, 1.1571068286895752, 8.429369557916289e-8, 0.7071068286895752))
+const station2 = new PixelInstance(2,new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
+const station3 = new PixelInstance(3,new Vector3(105.12619018554688, 2.397695350646973, 111.86958312988281),new Quaternion(4.1924393356208107e-16, -0.5275349736213684, 3.370685419668007e-8, 0.95919269323349))
 
 
 
@@ -1897,7 +1938,7 @@ const pirateLever = new Entity('pirateLever')
 engine.addEntity(pirateLever)
 pirateLever.setParent(_scene)
 const transform137 = new Transform({
-  position: new Vector3(124.33375549316406, 1.1931605339050293, 64.81904602050781),
+  position: new Vector3(124.33375549316406, 1.2131605339050293, 64.81904602050781),
   rotation: new Quaternion(2.281589916641253e-16, -0.8314695954322815, 9.911888554370307e-8, 0.5555702447891235),
   scale: new Vector3(1.0000087022781372, 1, 1.0000087022781372)
 })
@@ -1907,7 +1948,7 @@ const pirateLever2 = new Entity('pirateLever2')
 engine.addEntity(pirateLever2)
 pirateLever2.setParent(_scene)
 const transform138 = new Transform({
-  position: new Vector3(85.5, 1.2747583389282227, 49.5),
+  position: new Vector3(85.5, 0.602747583389282227, 49.5),
   rotation: new Quaternion(-4.1247484858827465e-15, 0.6343933343887329, -7.562555737194998e-8, 0.7730104327201843),
   scale: new Vector3(1.0000030994415283, 1, 1.0000030994415283)
 })
@@ -1927,7 +1968,7 @@ const pirateLever3 = new Entity('pirateLever3')
 engine.addEntity(pirateLever3)
 pirateLever3.setParent(_scene)
 const transform140 = new Transform({
-  position: new Vector3(51.812713623046875, 1.3480839729309082, 5.535457611083984),
+  position: new Vector3(51.812713623046875, 0.9403480839729309082, 5.535457611083984),
   rotation: new Quaternion(-4.4051384142805485e-15, -0.281709760427475, 3.3582409741939045e-8, 0.959499716758728),
   scale: new Vector3(1.0000089406967163, 1, 1.0000089406967163)
 })
@@ -1937,7 +1978,7 @@ const pirateLever4 = new Entity('pirateLever4')
 engine.addEntity(pirateLever4)
 pirateLever4.setParent(_scene)
 const transform141 = new Transform({
-  position: new Vector3(32.27556610107422, 0.6093838214874268, 34.80943298339844),
+  position: new Vector3(32.27556610107422, 0.5693838214874268, 34.80943298339844),
   rotation: new Quaternion(-4.4051384142805485e-15, -0.281709760427475, 3.3582409741939045e-8, 0.959499716758728),
   scale: new Vector3(1.0000089406967163, 1, 1.0000089406967163)
 })
@@ -1957,7 +1998,7 @@ const pirateLever5 = new Entity('pirateLever5')
 engine.addEntity(pirateLever5)
 pirateLever5.setParent(_scene)
 const transform143 = new Transform({
-  position: new Vector3(6.853513717651367, 0.916095495223999, 89.38191986083984),
+  position: new Vector3(3.553513717651367, 1.097095495223999, 86.88191986083984),
   rotation: new Quaternion(2.054099451024704e-14, -0.9663184881210327, 1.1519412623783865e-7, -0.25734928250312805),
   scale: new Vector3(1.0000131130218506, 1, 1.0000131130218506)
 })
@@ -1967,7 +2008,7 @@ const pirateLever6 = new Entity('pirateLever6')
 engine.addEntity(pirateLever6)
 pirateLever6.setParent(_scene)
 const transform144 = new Transform({
-  position: new Vector3(63.671775817871094, 1.3847160339355469, 93.54139709472656),
+  position: new Vector3(63.671775817871094, 1.2247160339355469, 93.54139709472656),
   rotation: new Quaternion(2.0937473692197832e-14, -0.9868900775909424, 1.1764644369804955e-7, -0.16139429807662964),
   scale: new Vector3(1.000074863433838, 1, 1.000074863433838)
 })
@@ -1982,6 +2023,27 @@ const transform145 = new Transform({
   scale: new Vector3(1.0000197887420654, 1, 1.0000197887420654)
 })
 raft4.addComponentOrReplace(transform145)
+
+const pirateLever7 = new Entity('pirateLever7')
+engine.addEntity(pirateLever7)
+pirateLever7.setParent(_scene)
+const transform220 = new Transform({
+  position: new Vector3(24.735944747924805, 1.1246735095977783, 59.24617385864258),
+  rotation: new Quaternion(7.178732976988178e-15, -0.9705947041511536, 1.1570389801818237e-7, -0.24071967601776123),
+  scale: new Vector3(1.0000230073928833, 1, 1.0000230073928833)
+})
+pirateLever7.addComponentOrReplace(transform220)
+
+const pirateLever8 = new Entity('pirateLever8')
+engine.addEntity(pirateLever8)
+pirateLever8.setParent(_scene)
+const transform221 = new Transform({
+  position: new Vector3(53.004329681396484, 1.20202522277832, 123.78591918945312),
+  rotation: new Quaternion(5.521145826902505e-15, 0.9878106713294983, -1.1775620123444241e-7, 0.15566009283065796),
+  scale: new Vector3(0.9999994039535522, 1, 0.9999994039535522)
+})
+pirateLever8.addComponentOrReplace(transform221)
+
 
 // Signposts to direct players
 
@@ -2010,8 +2072,8 @@ const signpostWood = new Entity('signpostWood')
 engine.addEntity(signpostWood)
 signpostWood.setParent(_scene)
 const transform149 = new Transform({
-  position: new Vector3(70.9338607788086, 8.030192375183105, 38.44879913330078),
-  rotation: new Quaternion(0, 0, 0, 1),
+  position: new Vector3(70.9338607788086, 8.030192375183105, 38.74879913330078),
+  rotation: new Quaternion(0, -0.1, 0, 1),
   scale: new Vector3(1, 1.283787727355957, 1)
 })
 signpostWood.addComponentOrReplace(transform149)
@@ -2409,25 +2471,6 @@ signpostTree21.addComponentOrReplace(transform201)
 
 //RAFTS AND LEVERS
 
-const pirateLever7 = new Entity('pirateLever7')
-engine.addEntity(pirateLever7)
-pirateLever7.setParent(_scene)
-const transform220 = new Transform({
-  position: new Vector3(24.735944747924805, 1.2246735095977783, 59.24617385864258),
-  rotation: new Quaternion(7.178732976988178e-15, -0.9705947041511536, 1.1570389801818237e-7, -0.24071967601776123),
-  scale: new Vector3(1.0000230073928833, 1, 1.0000230073928833)
-})
-pirateLever7.addComponentOrReplace(transform220)
-
-const pirateLever8 = new Entity('pirateLever8')
-engine.addEntity(pirateLever8)
-pirateLever8.setParent(_scene)
-const transform221 = new Transform({
-  position: new Vector3(53.004329681396484, 0.9640202522277832, 123.78591918945312),
-  rotation: new Quaternion(5.521145826902505e-15, 0.9878106713294983, -1.1775620123444241e-7, 0.15566009283065796),
-  scale: new Vector3(0.9999994039535522, 1, 0.9999994039535522)
-})
-pirateLever8.addComponentOrReplace(transform221)
 
 //VERTICAL PLATFORMS
 
@@ -2535,19 +2578,22 @@ script2.spawn(messageBubble9, {"text":"Hello\nThey call me the\nSatanic Leaf Tai
 script2.spawn(messageBubble10, {"text":"Hi there!\nI'm a black,\nblue-eyed Lemuridae\nbut only the boys are \nactually black! ","fontSize":12}, createChannel(channelId, messageBubble10, channelBus))
 script2.spawn(messageBubble11, {"text":"I'm a Panther\nChameleon, \nwe're one of \nthe most colourful\nspecies of chameleon. ","fontSize":12}, createChannel(channelId, messageBubble11, channelBus))
 script2.spawn(messageBubble12, {"text":"I'm a Lowland\nStreaked Tenrec. \nI'm more closely\nrelated to elephants\nthan to hedgehogs. \nBugs are my favourite\nfood! ","fontSize":12}, createChannel(channelId, messageBubble12, channelBus))
+
+// Text in information booth
+
 script3.spawn(signpostTree, {"text":" PIXELS   FOR   MADAGASCAR\n\nin collaboration with Eden Projects","fontSize":20}, createChannel(channelId, signpostTree, channelBus))
-script3.spawn(signpostTree2, {"text":"Lemursiv has been designed so that\nall pixel art created on the island is\nconverted into donations which go \ndirectly to Eden Projects. All visitors \ncan help save Madagascar from\ndeforestation by creating pixel art. ","fontSize":15}, createChannel(channelId, signpostTree2, channelBus))
-script3.spawn(signpostTree3, {"text":" /////","fontSize":15}, createChannel(channelId, signpostTree3, channelBus))
+script3.spawn(signpostTree2, {"text":"Lemursiv has been designed for you to experience\nMadagascar and some of it's endemic wildlife. \nYou can help the reforestation of Madagascar by\ncreating pixel art or donating to Eden Projects.","fontSize":15}, createChannel(channelId, signpostTree2, channelBus))
+script3.spawn(signpostTree3, {"text":"Madagascar is more than just an island from\nan animated movie. It's a nation with over 200,000 species\n of plants and animals that don't exist anywhere\nelse in the world. But more than 90% of Madagascar's\noriginal forests have been destroyed, displacing entire\nanimal species and taking away the Malagasy's ability\n to farm and live on the land.","fontSize":12}, createChannel(channelId, signpostTree3, channelBus))
 script3.spawn(signpostTree4, {"text":"For next challenge\n\n\"/goto next\"\n\nin chat window","fontSize":20}, createChannel(channelId, signpostTree4, channelBus))
 script3.spawn(signpostTree5, {"text":"Madagascar used to be part of a \nsupercontinent between Africa and India. \nThen, 88 million years ago, it separated \nbecoming an island and developing an \nextraordinary ecosystem. Some of the many\nendemic plants and animals can be seen on \nthe island here. \n","fontSize":15}, createChannel(channelId, signpostTree5, channelBus))
 script3.spawn(signpostTree6, {"text":"     CREATE   ART   PLANT   TREES\n      PLANT   TREES   SAVE   LIVES\n\n   bringing creativity and charity together\n      in collaboration with Eden Projects","fontSize":20}, createChannel(channelId, signpostTree6, channelBus))
 script3.spawn(signpostTree7, {"text":" PIXELS   FOR   MADAGASCAR\n\nin collaboration with Eden Projects","fontSize":20}, createChannel(channelId, signpostTree7, channelBus))
-script3.spawn(signpostTree8, {"text":"These are the main areas of focus for the \nreforestation of Madagascar lead by Eden\nProjects and supported by Lemursiv. ","fontSize":15}, createChannel(channelId, signpostTree8, channelBus))
-script3.spawn(signpostTree9, {"text":"////","fontSize":30}, createChannel(channelId, signpostTree9, channelBus))
-script3.spawn(signpostTree10, {"text":"////","fontSize":30}, createChannel(channelId, signpostTree10, channelBus))
-script3.spawn(signpostTree11, {"text":"////","fontSize":30}, createChannel(channelId, signpostTree11, channelBus))
-script3.spawn(signpostTree12, {"text":"////","fontSize":30}, createChannel(channelId, signpostTree12, channelBus))
-script3.spawn(signpostTree13, {"text":"////","fontSize":30}, createChannel(channelId, signpostTree13, channelBus))
+script3.spawn(signpostTree8, {"text":"The the main areas of focus for the \nreforestation of Madagascar lead by Eden\nProjects and supported by Lemursiv:\n1. Coastal (Northwest Madagascar)\n2. Protectured Natural Reserves/Parks \n(Ankarafantsika National Park)\n3. Inland (Northwest Madagascar) ","fontSize":15}, createChannel(channelId, signpostTree8, channelBus))
+script3.spawn(signpostTree9, {"text":"Only 10% 0f Madagascar's original forests remain today.\n75% of species found in Madagascar do not live anywhere\nelse on the planet.","fontSize":15}, createChannel(channelId, signpostTree9, channelBus))
+script3.spawn(signpostTree10, {"text":"Eden Reforestation Projects launched its Madagascar\nProject sites in 2007 by restoring ecologically\ndevastated mangrove estuaries in the northwest\nof the country. Mangrove forests are essential\necosystems whose dense roots serve as an anchor\nfor the soil and coastline preventing erosion and\ncreating a barrier between harsh ocean systems and land.","fontSize":15}, createChannel(channelId, signpostTree10, channelBus))
+script3.spawn(signpostTree11, {"text":"What began as primarily mangrove restoration and\nreforestation in 2007 grew to include a variety\nof native dry deciduous species in 2012.\nEden Projects' partners include two National Park\nsystems, which aim to reforest and revive natural\nhabitat for endangered and endemic animal species.","fontSize":15}, createChannel(channelId, signpostTree11, channelBus))
+script3.spawn(signpostTree12, {"text":"Eden Reforestation Projects is a 5O1C3 non-profit\nwhose mission is to provide fair wage\nemployment to impoverished villagers as agents\nof global forest restoration. By the year 2025\nEden's objevtive is to plant a minimum of 500 million\ntrees each year and offer employment\nto tens of thousand of people.","fontSize":15}, createChannel(channelId, signpostTree12, channelBus))
+script3.spawn(signpostTree13, {"text":"Lemursiv hopes to change the way people interact\nwith charities by creating an immersive\nvirtual space which represents Madagascar\nand can be freely explored by anyone.\nIn addition, all pixel art created in Lemursiv\nwill be converted into donations for\nEden Reforestation Projects.","fontSize":15}, createChannel(channelId, signpostTree13, channelBus))
 script4.spawn(clickArea5, {"enabled":true,"onClick":[{"entityName":"tools","actionId":"print","values":{"message":"Polka Dot Plant","duration":5,"multiplayer":false}},{"entityName":"tools","actionId":"delay","values":{"timeout":5,"onTimeout":[]}}]}, createChannel(channelId, clickArea5, channelBus))
 script4.spawn(clickArea6, {"enabled":true,"onClick":[{"entityName":"tools","actionId":"print","values":{"message":"Polka Dot Plant ","duration":5,"multiplayer":false}},{"entityName":"tools","actionId":"delay","values":{"timeout":5,"onTimeout":[]}}]}, createChannel(channelId, clickArea6, channelBus))
 script4.spawn(clickArea7, {"enabled":true,"onClick":[{"entityName":"tools","actionId":"print","values":{"message":"Polka Dot Plant ","duration":5,"multiplayer":false}},{"entityName":"tools","actionId":"delay","values":{"timeout":5,"onTimeout":[]}}]}, createChannel(channelId, clickArea7, channelBus))
@@ -2571,7 +2617,7 @@ script8.spawn(signpostDirections2, {"textTop":"Pixel Art Studio","textMiddle":"T
 script2.spawn(messageBubble16, {"text":"Hello, I'm a painted \nmantella frog, not many \npeople see me! \nMy habitat is in danger \nand my family \nis growing smaller.","fontSize":12}, createChannel(channelId, messageBubble16, channelBus))
 script9.spawn(signpostWood, {"text":"Tsingy","fontSize":20}, createChannel(channelId, signpostWood, channelBus))
 script9.spawn(signpostWood2, {"text":"Mt Maromokotro","fontSize":20}, createChannel(channelId, signpostWood2, channelBus))
-script10.spawn(signpostDirections3, {"textTop":"Pixel Art Centre","textLower":"Lemursiv  ","fontSize":19}, createChannel(channelId, signpostDirections3, channelBus))
+script10.spawn(signpostDirections3, {"textTop":"Pixel Art Centre","textLower":"Information","fontSize":19}, createChannel(channelId, signpostDirections3, channelBus))
 script9.spawn(signpostWood3, {"text":"Pic Boby","fontSize":20}, createChannel(channelId, signpostWood3, channelBus))
 script10.spawn(signpostDirections4, {"textTop":"Pic Boby","textLower":"Pixel Art Centre ","fontSize":20}, createChannel(channelId, signpostDirections4, channelBus))
 script10.spawn(signpostDirections5, {"textTop":"Pic Boby","textLower":"Mt Maromokotro ","fontSize":20}, createChannel(channelId, signpostDirections5, channelBus))
@@ -2581,8 +2627,8 @@ script4.spawn(clickArea2, {"enabled":true,"onClick":[{"entityName":"tools","acti
 script5.spawn(scroll2, {"text":"Madagascar palm trees are actually\na type of succulent. **","fontSize":20}, createChannel(channelId, scroll2, channelBus))
 script3.spawn(signpostTree14, {"text":"PIXEL   ART\nCENTRE","fontSize":30}, createChannel(channelId, signpostTree14, channelBus))
 script2.spawn(messageBubble17, {"text":"Welcome!\nGet on a boat to\nvisit Madagascar\nor take the Owl \nTour for a higher\nview! ","fontSize":20}, createChannel(channelId, messageBubble17, channelBus))
-script10.spawn(signpostDirections6, {"textTop":"Lemursiv","textLower":"Madagascar","fontSize":20}, createChannel(channelId, signpostDirections6, channelBus))
-script10.spawn(signpostDirections7, {"textTop":"Lemursiv","textLower":"Madagascar","fontSize":20}, createChannel(channelId, signpostDirections7, channelBus))
+script10.spawn(signpostDirections6, {"textTop":"Information","textLower":"Madagascar","fontSize":20}, createChannel(channelId, signpostDirections6, channelBus))
+script10.spawn(signpostDirections7, {"textTop":"Information","textLower":"Madagascar","fontSize":20}, createChannel(channelId, signpostDirections7, channelBus))
 script10.spawn(signpostDirections8, {"textTop":"Madagascar","textLower":"Owl Tour","fontSize":20}, createChannel(channelId, signpostDirections8, channelBus))
 script10.spawn(signpostDirections9, {"textTop":"Madagascar","textLower":"Owl Tour","fontSize":20}, createChannel(channelId, signpostDirections9, channelBus))
 script2.spawn(messageBubble18, {"text":"Am I a tomato?\nAm I a frog?\nNo! \nI'm an endangered\nTomato Frog. ","fontSize":20}, createChannel(channelId, messageBubble18, channelBus))
@@ -2613,28 +2659,18 @@ script4.spawn(clickArea24, {"enabled":true,"onClick":[{"entityName":"tools","act
 script4.spawn(clickArea25, {"enabled":true,"onClick":[{"entityName":"tools","actionId":"print","values":{"message":"Polka Dot Plant","duration":5,"multiplayer":false}},{"entityName":"tools","actionId":"delay","values":{"timeout":10,"onTimeout":[]}}]}, createChannel(channelId, clickArea25, channelBus))
 script2.spawn(messageBubble21, {"text":"Welcome to mount\nMaromokotro! People \nare cutting down trees\non my island and I don't\nlike it. Will you help me \nreplant trees here? ","fontSize":12}, createChannel(channelId, messageBubble21, channelBus))
 script2.spawn(messageBubble22, {"text":"I may look scary \nbut I'm not very\nadventurous... in \nthe wild I only live\nin one 10km2\nforest. Please plant\ntrees there! ","fontSize":12}, createChannel(channelId, messageBubble22, channelBus))
-script8.spawn(signpostDirections10, {"textTop":"Tsingy","textMiddle":"Lemursiv","textLower":"Baobab Avenue","fontSize":20}, createChannel(channelId, signpostDirections10, channelBus))
+script8.spawn(signpostDirections10, {"textTop":"Tsingy","textMiddle":"Information","textLower":"Baobab Avenue","fontSize":20}, createChannel(channelId, signpostDirections10, channelBus))
 script2.spawn(messageBubble23, {"text":"Hello! I'm a Madagascar\nLong Eared Owl, would \nyou like to take a tour\nof the island on my back?","fontSize":15}, createChannel(channelId, messageBubble23, channelBus))
 script5.spawn(scroll5, {"text":"A Madagascar Long\nEared Owl nests here. \nWait for him and he will \ngive you a tour of his \nisland. ","fontSize":36}, createChannel(channelId, scroll5, channelBus))
 script2.spawn(messageBubble24, {"text":"You found me!\nI'm a Panther \nChameleon, \nslurp! ","fontSize":15}, createChannel(channelId, messageBubble24, channelBus))
-script12.spawn(signpostTree15, {"text":"Some text","fontSize":20}, createChannel(channelId, signpostTree15, channelBus))
-
-var sign18Channel = createChannel(channelId, signpostTree18, channelBus)
-script3.spawn(signpostTree18, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign18Channel)
-
-var sign19Channel = createChannel(channelId, signpostTree18, channelBus)
-script3.spawn(signpostTree19, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign19Channel)
-
-var sign20Channel = createChannel(channelId, signpostTree18, channelBus)
-script3.spawn(signpostTree20, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign20Channel)
-
-var sign21Channel = createChannel(channelId, signpostTree18, channelBus)
-script3.spawn(signpostTree21, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign21Channel)
-
-
+script12.spawn(signpostTree15, {"text":"Chameleon","fontSize":20}, createChannel(channelId, signpostTree15, channelBus))
+script3.spawn(signpostTree18, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree18, channelBus))
+script3.spawn(signpostTree19, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree19, channelBus))
+script3.spawn(signpostTree20, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree20, channelBus))
+script3.spawn(signpostTree21, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree21, channelBus))
 script7.spawn(pirateLever7, {"onActivate":[{"entityName":"raft3","actionId":"goToStart","values":{}}],"onDeactivate":[{"entityName":"raft3","actionId":"goToEnd","values":{}}]}, createChannel(channelId, pirateLever7, channelBus))
 script7.spawn(pirateLever8, {"onActivate":[{"entityName":"raft4","actionId":"goToEnd","values":{}}],"onDeactivate":[{"entityName":"raft4","actionId":"goToStart","values":{}}]}, createChannel(channelId, pirateLever8, channelBus))
 script13.spawn(verticalMagicRock, {"distance":60,"speed":1,"autoStart":true,"onReachEnd":[{"entityName":"verticalMagicRock","actionId":"goToStart","values":{}}],"onReachStart":[{"entityName":"verticalMagicRock","actionId":"goToEnd","values":{}}]}, createChannel(channelId, verticalMagicRock, channelBus))
 script13.spawn(verticalMagicRock2, {"distance":50,"speed":1,"autoStart":true,"onReachEnd":[{"entityName":"verticalMagicRock2","actionId":"goToStart","values":{}}],"onReachStart":[{"entityName":"verticalMagicRock2","actionId":"goToEnd","values":{}}]}, createChannel(channelId, verticalMagicRock2, channelBus))
 
-// Add pixel art centres 
+
