@@ -60,7 +60,7 @@ export function getFromServer() {
         }
         log("got data from server")
       } catch {
-        log("error getting all pixels")
+        log("error getting all pixels for station " + this.station)
       }
   
      })

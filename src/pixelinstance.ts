@@ -59,6 +59,8 @@ playerAddress:string
   constructor(station:number, playerAddress:string, position:Vector3, rotation:Quaternion){
     super()
 
+    log("creating new Pixel instance named station " + station)
+
     this.playerAddress = playerAddress
     this.station = station
 
