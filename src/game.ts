@@ -1287,7 +1287,7 @@ engine.addEntity(sifakaLemurAnimate2)
 sifakaLemurAnimate2.setParent(_scene)
 sifakaLemurAnimate2.addComponentOrReplace(gltfShape18)
 const transform122 = new Transform({
-  position: new Vector3(18.544912338256836, 28.475147247314453, 36.143550872802734),
+  position: new Vector3(18.544912338256836, 28.575147247314453, 36.143550872802734),
   rotation: new Quaternion(-2.7072407544768062e-15, -0.16581355035305023, 1.976651731183665e-8, -0.9861571192741394),
   scale: new Vector3(0.6165609359741211, 0.6165599226951599, 0.6165609359741211)
 })
@@ -1944,15 +1944,7 @@ const transform137 = new Transform({
 })
 pirateLever.addComponentOrReplace(transform137)
 
-const pirateLever2 = new Entity('pirateLever2')
-engine.addEntity(pirateLever2)
-pirateLever2.setParent(_scene)
-const transform138 = new Transform({
-  position: new Vector3(85.5, 0.602747583389282227, 49.5),
-  rotation: new Quaternion(-4.1247484858827465e-15, 0.6343933343887329, -7.562555737194998e-8, 0.7730104327201843),
-  scale: new Vector3(1.0000030994415283, 1, 1.0000030994415283)
-})
-pirateLever2.addComponentOrReplace(transform138)
+
 
 const raft2 = new Entity('raft2')
 engine.addEntity(raft2)
@@ -1974,15 +1966,7 @@ const transform140 = new Transform({
 })
 pirateLever3.addComponentOrReplace(transform140)
 
-const pirateLever4 = new Entity('pirateLever4')
-engine.addEntity(pirateLever4)
-pirateLever4.setParent(_scene)
-const transform141 = new Transform({
-  position: new Vector3(32.27556610107422, 0.5693838214874268, 34.80943298339844),
-  rotation: new Quaternion(-4.4051384142805485e-15, -0.281709760427475, 3.3582409741939045e-8, 0.959499716758728),
-  scale: new Vector3(1.0000089406967163, 1, 1.0000089406967163)
-})
-pirateLever4.addComponentOrReplace(transform141)
+
 
 const raft3 = new Entity('raft3')
 engine.addEntity(raft3)
@@ -2004,15 +1988,7 @@ const transform143 = new Transform({
 })
 pirateLever5.addComponentOrReplace(transform143)
 
-const pirateLever6 = new Entity('pirateLever6')
-engine.addEntity(pirateLever6)
-pirateLever6.setParent(_scene)
-const transform144 = new Transform({
-  position: new Vector3(63.671775817871094, 1.2247160339355469, 93.54139709472656),
-  rotation: new Quaternion(2.0937473692197832e-14, -0.9868900775909424, 1.1764644369804955e-7, -0.16139429807662964),
-  scale: new Vector3(1.000074863433838, 1, 1.000074863433838)
-})
-pirateLever6.addComponentOrReplace(transform144)
+
 
 const raft4 = new Entity('raft4')
 engine.addEntity(raft4)
@@ -2024,15 +2000,7 @@ const transform145 = new Transform({
 })
 raft4.addComponentOrReplace(transform145)
 
-const pirateLever7 = new Entity('pirateLever7')
-engine.addEntity(pirateLever7)
-pirateLever7.setParent(_scene)
-const transform220 = new Transform({
-  position: new Vector3(24.735944747924805, 1.1246735095977783, 59.24617385864258),
-  rotation: new Quaternion(7.178732976988178e-15, -0.9705947041511536, 1.1570389801818237e-7, -0.24071967601776123),
-  scale: new Vector3(1.0000230073928833, 1, 1.0000230073928833)
-})
-pirateLever7.addComponentOrReplace(transform220)
+
 
 const pirateLever8 = new Entity('pirateLever8')
 engine.addEntity(pirateLever8)
@@ -2582,15 +2550,18 @@ script2.spawn(messageBubble12, {"text":"I'm a Lowland\nStreaked Tenrec. \nI'm mo
 // Text in information booth
 
 script3.spawn(signpostTree, {"text":" PIXELS   FOR   MADAGASCAR\n\nin collaboration with Eden Projects","fontSize":20}, createChannel(channelId, signpostTree, channelBus))
-script3.spawn(signpostTree2, {"text":"Lemursiv has been designed for you to experience\nMadagascar and some of it's endemic wildlife. \nYou can help the reforestation of Madagascar by\ncreating pixel art or donating to Eden Projects.","fontSize":15}, createChannel(channelId, signpostTree2, channelBus))
+
+script3.spawn(signpostTree2, {"text":"The the main areas of focus for the \nreforestation of Madagascar lead by Eden\nProjects and supported by Lemursiv:\n1. Coastal (Northwest Madagascar)\n2. Protectured Natural Reserves/Parks \n(Ankarafantsika National Park)\n3. Inland (Northwest Madagascar) ","fontSize":15}, createChannel(channelId, signpostTree2, channelBus))
+
 script3.spawn(signpostTree3, {"text":"Madagascar is more than just an island from\nan animated movie. It's a nation with over 200,000 species\n of plants and animals that don't exist anywhere\nelse in the world. But more than 90% of Madagascar's\noriginal forests have been destroyed, displacing entire\nanimal species and taking away the Malagasy's ability\n to farm and live on the land.","fontSize":12}, createChannel(channelId, signpostTree3, channelBus))
 script3.spawn(signpostTree4, {"text":"For next challenge\n\n\"/goto next\"\n\nin chat window","fontSize":20}, createChannel(channelId, signpostTree4, channelBus))
 script3.spawn(signpostTree5, {"text":"Madagascar used to be part of a \nsupercontinent between Africa and India. \nThen, 88 million years ago, it separated \nbecoming an island and developing an \nextraordinary ecosystem. Some of the many\nendemic plants and animals can be seen on \nthe island here. \n","fontSize":15}, createChannel(channelId, signpostTree5, channelBus))
 script3.spawn(signpostTree6, {"text":"     CREATE   ART   PLANT   TREES\n      PLANT   TREES   SAVE   LIVES\n\n   bringing creativity and charity together\n      in collaboration with Eden Projects","fontSize":20}, createChannel(channelId, signpostTree6, channelBus))
 script3.spawn(signpostTree7, {"text":" PIXELS   FOR   MADAGASCAR\n\nin collaboration with Eden Projects","fontSize":20}, createChannel(channelId, signpostTree7, channelBus))
-script3.spawn(signpostTree8, {"text":"The the main areas of focus for the \nreforestation of Madagascar lead by Eden\nProjects and supported by Lemursiv:\n1. Coastal (Northwest Madagascar)\n2. Protectured Natural Reserves/Parks \n(Ankarafantsika National Park)\n3. Inland (Northwest Madagascar) ","fontSize":15}, createChannel(channelId, signpostTree8, channelBus))
-script3.spawn(signpostTree9, {"text":"Only 10% 0f Madagascar's original forests remain today.\n75% of species found in Madagascar do not live anywhere\nelse on the planet.","fontSize":15}, createChannel(channelId, signpostTree9, channelBus))
-script3.spawn(signpostTree10, {"text":"Eden Reforestation Projects launched its Madagascar\nProject sites in 2007 by restoring ecologically\ndevastated mangrove estuaries in the northwest\nof the country. Mangrove forests are essential\necosystems whose dense roots serve as an anchor\nfor the soil and coastline preventing erosion and\ncreating a barrier between harsh ocean systems and land.","fontSize":15}, createChannel(channelId, signpostTree10, channelBus))
+
+script3.spawn(signpostTree8, {"text":"Lemursiv has been designed for you to experience\nMadagascar and some of it's endemic wildlife. \nYou can help the reforestation of Madagascar by\ncreating pixel art or donating to Eden Projects.","fontSize":15}, createChannel(channelId, signpostTree8, channelBus))
+script3.spawn(signpostTree9, {"text":"Only 10% 0f Madagascar's original forests\nremain today. 75% of species found\nin Madagascar do not live\nanywhere else on the planet.","fontSize":15}, createChannel(channelId, signpostTree9, channelBus))
+script3.spawn(signpostTree10, {"text":"Eden Reforestation Projects launched its Madagascar\nProject sites in 2007 by restoring ecologically\ndevastated mangrove estuaries in the\nnorthwest of the country. Mangrove forests\nare essential ecosystems whose dense roots\nserve as an anchor for the soil and coastline\npreventing erosion and creating a barrier\nbetween harsh ocean systems and land.","fontSize":15}, createChannel(channelId, signpostTree10, channelBus))
 script3.spawn(signpostTree11, {"text":"What began as primarily mangrove restoration and\nreforestation in 2007 grew to include a variety\nof native dry deciduous species in 2012.\nEden Projects' partners include two National Park\nsystems, which aim to reforest and revive natural\nhabitat for endangered and endemic animal species.","fontSize":15}, createChannel(channelId, signpostTree11, channelBus))
 script3.spawn(signpostTree12, {"text":"Eden Reforestation Projects is a 5O1C3 non-profit\nwhose mission is to provide fair wage\nemployment to impoverished villagers as agents\nof global forest restoration. By the year 2025\nEden's objevtive is to plant a minimum of 500 million\ntrees each year and offer employment\nto tens of thousand of people.","fontSize":15}, createChannel(channelId, signpostTree12, channelBus))
 script3.spawn(signpostTree13, {"text":"Lemursiv hopes to change the way people interact\nwith charities by creating an immersive\nvirtual space which represents Madagascar\nand can be freely explored by anyone.\nIn addition, all pixel art created in Lemursiv\nwill be converted into donations for\nEden Reforestation Projects.","fontSize":15}, createChannel(channelId, signpostTree13, channelBus))
@@ -2604,17 +2575,14 @@ script2.spawn(messageBubble14, {"text":"My name is Liam, I'm trying to save my h
 script2.spawn(messageBubble15, {"text":"I'm a ring tailed lemur\nand this is my home, \nMadagascar! You can \nmake art here and save \nme and my friends. : ) ","fontSize":20}, createChannel(channelId, messageBubble15, channelBus))
 script6.spawn(raft, {"distance":35,"speed":1,"autoStart":false,"onReachEnd":[],"onReachStart":[]}, createChannel(channelId, raft, channelBus))
 script7.spawn(pirateLever, {"onActivate":[{"entityName":"raft","actionId":"goToEnd","values":{}}],"onDeactivate":[{"entityName":"raft","actionId":"goToStart","values":{}}]}, createChannel(channelId, pirateLever, channelBus))
-script7.spawn(pirateLever2, {"onActivate":[{"entityName":"raft","actionId":"goToStart","values":{}}],"onDeactivate":[{"entityName":"raft","actionId":"goToEnd","values":{}}]}, createChannel(channelId, pirateLever2, channelBus))
 script6.spawn(raft2, {"distance":35,"speed":2,"autoStart":false,"onReachEnd":[],"onReachStart":[]}, createChannel(channelId, raft2, channelBus))
 script7.spawn(pirateLever3, {"onActivate":[{"entityName":"raft2","actionId":"goToEnd","values":{}}],"onDeactivate":[{"entityName":"raft","actionId":"goToStart","values":{}}]}, createChannel(channelId, pirateLever3, channelBus))
-script7.spawn(pirateLever4, {"onActivate":[{"entityName":"raft2","actionId":"goToEnd","values":{}}],"onDeactivate":[{"entityName":"raft","actionId":"goToStart","values":{}}]}, createChannel(channelId, pirateLever4, channelBus))
 script6.spawn(raft3, {"distance":32,"speed":2,"autoStart":false,"onReachEnd":[],"onReachStart":[]}, createChannel(channelId, raft3, channelBus))
 script7.spawn(pirateLever5, {"onActivate":[{"entityName":"raft3","actionId":"goToEnd","values":{}}],"onDeactivate":[{"entityName":"raft3","actionId":"goToStart","values":{}}]}, createChannel(channelId, pirateLever5, channelBus))
-script7.spawn(pirateLever6, {"onActivate":[{"entityName":"raft4","actionId":"goToStart","values":{}}],"onDeactivate":[{"entityName":"raft","actionId":"goToEnd","values":{}}]}, createChannel(channelId, pirateLever6, channelBus))
 script6.spawn(raft4, {"distance":32,"speed":2,"autoStart":false,"onReachEnd":[],"onReachStart":[]}, createChannel(channelId, raft4, channelBus))
 script8.spawn(signpostDirections, {"textTop":"Pixel Art Centre","textMiddle":"Owl Tour","textLower":"Mt Maromokotro","fontSize":15}, createChannel(channelId, signpostDirections, channelBus))
 script8.spawn(signpostDirections2, {"textTop":"Pixel Art Studio","textMiddle":"Tsingy","textLower":"Owl Tour","fontSize":15}, createChannel(channelId, signpostDirections2, channelBus))
-script2.spawn(messageBubble16, {"text":"Hello, I'm a painted \nmantella frog, not many \npeople see me! \nMy habitat is in danger \nand my family \nis growing smaller.","fontSize":12}, createChannel(channelId, messageBubble16, channelBus))
+script2.spawn(messageBubble16, {"text":"Hello, I'm a painted \nmantella frog, not many \npeople see me!\nMy habitat is in danger\nand my family\nis growing smaller.","fontSize":12}, createChannel(channelId, messageBubble16, channelBus))
 script9.spawn(signpostWood, {"text":"Tsingy","fontSize":20}, createChannel(channelId, signpostWood, channelBus))
 script9.spawn(signpostWood2, {"text":"Mt Maromokotro","fontSize":20}, createChannel(channelId, signpostWood2, channelBus))
 script10.spawn(signpostDirections3, {"textTop":"Pixel Art Centre","textLower":"Information","fontSize":19}, createChannel(channelId, signpostDirections3, channelBus))
@@ -2631,7 +2599,7 @@ script10.spawn(signpostDirections6, {"textTop":"Information","textLower":"Madaga
 script10.spawn(signpostDirections7, {"textTop":"Information","textLower":"Madagascar","fontSize":20}, createChannel(channelId, signpostDirections7, channelBus))
 script10.spawn(signpostDirections8, {"textTop":"Madagascar","textLower":"Owl Tour","fontSize":20}, createChannel(channelId, signpostDirections8, channelBus))
 script10.spawn(signpostDirections9, {"textTop":"Madagascar","textLower":"Owl Tour","fontSize":20}, createChannel(channelId, signpostDirections9, channelBus))
-script2.spawn(messageBubble18, {"text":"Am I a tomato?\nAm I a frog?\nNo! \nI'm an endangered\nTomato Frog. ","fontSize":20}, createChannel(channelId, messageBubble18, channelBus))
+script2.spawn(messageBubble18, {"text":"Am I a tomato?\nAm I a frog?\nNo! \nI'm an endangered\nTomato Frog. ","fontSize":15}, createChannel(channelId, messageBubble18, channelBus))
 script2.spawn(messageBubble19, {"text":"Most of my natural\nhabitat has been  \ncleared for farm land. \nI'm one of only about \n1000 black blue eyed \nlemuridaes in the wild. ","fontSize":12}, createChannel(channelId, messageBubble19, channelBus))
 script2.spawn(messageBubble20, {"text":"Leave me alone!\nI'm sleepy","fontSize":12}, createChannel(channelId, messageBubble20, channelBus))
 script3.spawn(signpostTree16, {"text":"PIXEL   ART\nCENTRE","fontSize":30}, createChannel(channelId, signpostTree16, channelBus))
@@ -2668,7 +2636,6 @@ script3.spawn(signpostTree18, {"text":"TOP DONORS \n\n1.************************
 script3.spawn(signpostTree19, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree19, channelBus))
 script3.spawn(signpostTree20, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree20, channelBus))
 script3.spawn(signpostTree21, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree21, channelBus))
-script7.spawn(pirateLever7, {"onActivate":[{"entityName":"raft3","actionId":"goToStart","values":{}}],"onDeactivate":[{"entityName":"raft3","actionId":"goToEnd","values":{}}]}, createChannel(channelId, pirateLever7, channelBus))
 script7.spawn(pirateLever8, {"onActivate":[{"entityName":"raft4","actionId":"goToEnd","values":{}}],"onDeactivate":[{"entityName":"raft4","actionId":"goToStart","values":{}}]}, createChannel(channelId, pirateLever8, channelBus))
 script13.spawn(verticalMagicRock, {"distance":60,"speed":1,"autoStart":true,"onReachEnd":[{"entityName":"verticalMagicRock","actionId":"goToStart","values":{}}],"onReachStart":[{"entityName":"verticalMagicRock","actionId":"goToEnd","values":{}}]}, createChannel(channelId, verticalMagicRock, channelBus))
 script13.spawn(verticalMagicRock2, {"distance":50,"speed":1,"autoStart":true,"onReachEnd":[{"entityName":"verticalMagicRock2","actionId":"goToStart","values":{}}],"onReachStart":[{"entityName":"verticalMagicRock2","actionId":"goToEnd","values":{}}]}, createChannel(channelId, verticalMagicRock2, channelBus))
