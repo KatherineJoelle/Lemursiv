@@ -1121,9 +1121,9 @@ const sifakaLemurAnimate = new Entity('sifakaLemurAnimate')
 engine.addEntity(sifakaLemurAnimate)
 sifakaLemurAnimate.setParent(_scene)
 const transform82 = new Transform({
-  position: new Vector3(12.176483154296875, 7.018277645111084, 43.01519012451172),
+  position: new Vector3(12.176483154296875, 6.97018277645111084, 43.01519012451172),
   rotation: new Quaternion(-2.7072407544768062e-15, -0.16581355035305023, 1.976651731183665e-8, -0.9861571192741394),
-  scale: new Vector3(0.6165609359741211, 0.6165599226951599, 0.6165609359741211)
+  scale: new Vector3(0.4165609359741211, 0.4165599226951599, 0.4165609359741211)
 })
 sifakaLemurAnimate.addComponentOrReplace(transform82)
 const gltfShape18 = new GLTFShape("models/sifaka_Lemur_animated.glb")
@@ -1340,7 +1340,7 @@ engine.addEntity(easternwoollylemurA2)
 easternwoollylemurA2.setParent(_scene)
 easternwoollylemurA2.addComponentOrReplace(gltfShape10)
 const transform125 = new Transform({
-  position: new Vector3(69.153116455078125, 6.350521373748779, 85.9),
+  position: new Vector3(68.153116455078125, 6.350521373748779, 84.9),
   rotation: new Quaternion(0.044304557144641876, 0.9040204286575317, 0.09984350204467773, -0.4132983088493347),
   scale: new Vector3(1.0000379085540771, 0.9999983906745911, 1.0000427961349487)
 })
@@ -2496,7 +2496,7 @@ const transform206 = new Transform({
 buhocollider.addComponentOrReplace(transform206)
 const gltfShape26 = new GLTFShape("models/BUHOCOLLIDER.glb")
 gltfShape26.withCollisions = true
-gltfShape26.visible = false
+gltfShape26.visible = true
 buhocollider.addComponentOrReplace(gltfShape26)
 
 // SCRIPTS

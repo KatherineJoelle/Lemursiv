@@ -4,7 +4,9 @@ export const refreshInterval: number = 1
 
 
 export const wallBlocksX: number = 21;
+export const wallBlocksX2: number = 7;
 export const wallBlocksY: number = 15;
+export const wallBlocksY2: number = 5;
 export const wallWidth = 7;
 export const wallHeight = 5;
 export const wallOffsetX = 0.75;
