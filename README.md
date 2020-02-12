@@ -1,8 +1,18 @@
 # Lemursiv
 
-This is the github repository for Lemursiv Project: a game and 3D representation of Madagascar in Decentraland.
+This is the github repository for Lemursiv.
 
-Lemursiv Project is a nonprofit which has been developed to exhibit the unique ecosystem of Madagascar, focusing on lemurs. The project's goal is to replant trees in Madagascar and save its endemic and endangered species from the clearing of forests for farm land. It is designed to offer players a fun and educational experience and to increase donations to the reforestation of Madagascar. All donations are handled by the charity https://edenprojects.org/
+Also known as, Pixels for Madagascar @ PhiAum Estate.
+
+Lemursiv is a Decentraland nature preservation awareness project zone inside the PhiAum Estate, a showcase area of blockchain technology for charitable purposes and community collaboration.  
+
+Increase your trees planted number by creating pixel art pictures with your friends together in Decentraland.  Collaborative art pictures go up for auction and the proceeds help to plant more trees in real life Madagascar.  Top pixel art participants recieve NFTs from our best community creations.  Explore our scene, join in some art, help our planet.  
+
+***  All trees planted are REAL TREES being planted in Madagascar, planted by Eden Projects.  https://edenprojects.org/
+
+
+Lemursiv has been developed to exhibit the unique ecosystem of Madagascar, focusing on raising awareness for lemurs and their habitat. The project's goal is to replant trees in Madagascar and save its endemic and endangered species from the clearing of forests for farm land. Lemursiv aims to be a fun, educational, and casually collaborative experience while also raising awareness for an amazing charity https://edenprojects.org/
+
 
 ## Technologies
 
