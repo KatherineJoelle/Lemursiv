@@ -987,9 +987,9 @@ const fossaAnimated = new Entity('fossaAnimated')
 engine.addEntity(fossaAnimated)
 fossaAnimated.setParent(_scene)
 const transform75 = new Transform({
-  position: new Vector3(83.63587188720703, 2.70488765239715576, 74.1373519897461),
-  rotation: new Quaternion(2.8261521100518116e-15, 0.7730104327201843, -9.21500173944878e-8, -0.6343932747840881),
-  scale: new Vector3(0.429121732711792, 0.42912203073501587, 0.429121732711792)
+  position: new Vector3(64, 0.4, 64),
+  rotation: new Quaternion(0, 1, 0, 1),
+  scale: new Vector3(1, 1, 1)
 })
 fossaAnimated.addComponentOrReplace(transform75)
 const gltfShape11 = new GLTFShape("models/fossa_animated.glb")
@@ -1023,7 +1023,7 @@ const audioSource4 = new AudioSource(mouselemursound)
 greymouselemurAnima.addComponent(audioSource4)
 audioSource4.playing = true 
 audioSource4.loop = true
-audioSource4.volume = 1
+audioSource4.volume = 0.8
 
 const madagascarmillipede = new Entity('madagascarmillipede')
 engine.addEntity(madagascarmillipede)
@@ -1058,7 +1058,7 @@ const audioSource5 = new AudioSource(frogsound)
 paintedmantellafrog.addComponent(audioSource5)
 audioSource5.playing = true 
 audioSource5.loop = true
-audioSource5.volume = 0.5
+audioSource5.volume = 0.4
 
 const pantherchameleonAni = new Entity('pantherchameleonAni')
 engine.addEntity(pantherchameleonAni)
@@ -1079,8 +1079,8 @@ const tomatofrogAnimated = new Entity('tomatofrogAnimated')
 engine.addEntity(tomatofrogAnimated)
 tomatofrogAnimated.setParent(_scene)
 const transform80 = new Transform({
-  position: new Vector3(115.20838165283203, 0.8688149452209473, 87.37993621826172),
-  rotation: new Quaternion(-3.5787192843471025e-15, 0.8966167569160461, -1.0688502527500532e-7, 0.4428074359893799),
+  position: new Vector3(118.20838165283203, 0.0688149452209473, 87.37993621826172),
+  rotation: new Quaternion(-3.5787192843471025e-15, 0, -1.0688502527500532e-7, 0.4428074359893799),
   scale: new Vector3(0.09194184839725494, 0.09194183349609375, 0.09194184839725494)
 })
 tomatofrogAnimated.addComponentOrReplace(transform80)
@@ -1094,7 +1094,7 @@ const audioSource11 = new AudioSource(frogsound2)
 tomatofrogAnimated.addComponent(audioSource11)
 audioSource11.playing = true
 audioSource11.loop = true
-audioSource11.volume = 0.5
+audioSource11.volume = 0.4
 
 const satanicgeckoAnimate = new Entity('satanicgeckoAnimate')
 engine.addEntity(satanicgeckoAnimate)
@@ -1115,7 +1115,7 @@ const audioSource7 = new AudioSource(geckosound)
 satanicgeckoAnimate.addComponent(audioSource7)
 audioSource7.playing = true 
 audioSource7.loop = true
-audioSource7.volume = 0.5
+audioSource7.volume = 0.3
 
 const sifakaLemurAnimate = new Entity('sifakaLemurAnimate')
 engine.addEntity(sifakaLemurAnimate)
@@ -1142,7 +1142,7 @@ const rringtailedlemurAni = new Entity('rringtailedlemurAni')
 engine.addEntity(rringtailedlemurAni)
 rringtailedlemurAni.setParent(_scene)
 const transform83 = new Transform({
-  position: new Vector3(100.10406494140625, 1.283, 122.53780364990234),
+  position: new Vector3(100.10406494140625, 1.183, 122.53780364990234),
   rotation: new Quaternion(-9.939319654724823e-16, 0.4721946716308594, -5.628997712392447e-8, -0.8814942836761475),
   scale: new Vector3(0.9999967813491821, 1, 0.9999967813491821)
 })
@@ -1175,7 +1175,7 @@ engine.addEntity(paintedmantellafrog2)
 paintedmantellafrog2.setParent(_scene)
 paintedmantellafrog2.addComponentOrReplace(gltfShape14)
 const transform85 = new Transform({
-  position: new Vector3(48.6295280456543, 0.4657558798789978, 25.29325294494629),
+  position: new Vector3(48.6295280456543, 0.1657558798789978, 25.29325294494629),
   rotation: new Quaternion(-9.292724348944044e-16, 0.4398329257965088, -5.243216705252962e-8, 0.8980796337127686),
   scale: new Vector3(0.033587899059057236, 0.03358790650963783, 0.033587899059057236)
 })
@@ -1186,14 +1186,14 @@ const audioSource14 = new AudioSource(frogsound3)
 paintedmantellafrog2.addComponent(audioSource14)
 audioSource14.playing = true
 audioSource14.loop = true
-audioSource14.volume = 0.5
+audioSource14.volume = 0.2
 
 const tomatofrogAnimated2 = new Entity('tomatofrogAnimated2')
 engine.addEntity(tomatofrogAnimated2)
 tomatofrogAnimated2.setParent(_scene)
 tomatofrogAnimated2.addComponentOrReplace(gltfShape16)
 const transform86 = new Transform({
-  position: new Vector3(26.335941314697266, 0.810722827911377, 78.24880981445312),
+  position: new Vector3(26.335941314697266, 0.0810722827911377, 78.24880981445312),
   rotation: new Quaternion(1.0526916865798074e-16, 0.9960947632789612, -1.1874372773945652e-7, 0.08829087764024734),
   scale: new Vector3(0.09194191545248032, 0.09194183349609375, 0.09194191545248032)
 })
@@ -1204,14 +1204,14 @@ const audioSource15 = new AudioSource(frogsound4)
 tomatofrogAnimated2.addComponent(audioSource15)
 audioSource15.playing = true
 audioSource15.loop = true
-audioSource15.volume = 0.5
+audioSource15.volume = 0.4
 
 const rringtailedlemurAni2 = new Entity('rringtailedlemurAni2')
 engine.addEntity(rringtailedlemurAni2)
 rringtailedlemurAni2.setParent(_scene)
 rringtailedlemurAni2.addComponentOrReplace(gltfShape19)
 const transform87 = new Transform({
-  position: new Vector3(2.415367364883423, 0.9572110176086426, 96.90129852294922),
+  position: new Vector3(2.415367364883423, 1.15, 96.90129852294922),
   rotation: new Quaternion(5.006868078911162e-15, -0.9971243143081665, 1.1886646689163172e-7, -0.07578300684690475),
   scale: new Vector3(1.0000073909759521, 1, 1.0000073909759521)
 })
@@ -1229,7 +1229,7 @@ engine.addEntity(rringtailedlemurAni3)
 rringtailedlemurAni3.setParent(_scene)
 rringtailedlemurAni3.addComponentOrReplace(gltfShape19)
 const transform88 = new Transform({
-  position: new Vector3(63.248046875, 0.8335380554199219, 3.0526785850524902),
+  position: new Vector3(63.248046875, 0.97, 3.0526785850524902),
   rotation: new Quaternion(-2.2535343325436183e-15, -0.6126643419265747, 7.303525961788182e-8, 0.7903432250022888),
   scale: new Vector3(1.0000001192092896, 1, 1.0000001192092896)
 })
@@ -1247,7 +1247,7 @@ engine.addEntity(rringtailedlemurAni5)
 rringtailedlemurAni5.setParent(_scene)
 rringtailedlemurAni5.addComponentOrReplace(gltfShape19)
 const transform89 = new Transform({
-  position: new Vector3(126.55460357666016, 1.2507200241088867, 35.984031677246094),
+  position: new Vector3(126.55460357666016, 0.9, 35.984031677246094),
   rotation: new Quaternion(3.3108216096136437e-15, -0.9989284873008728, 1.1908154107231894e-7, 0.04628226161003113),
   scale: new Vector3(1.0000261068344116, 1, 1.0000261068344116)
 })
@@ -1286,9 +1286,9 @@ engine.addEntity(sifakaLemurAnimate2)
 sifakaLemurAnimate2.setParent(_scene)
 sifakaLemurAnimate2.addComponentOrReplace(gltfShape18)
 const transform122 = new Transform({
-  position: new Vector3(18.544912338256836, 28.575147247314453, 36.143550872802734),
+  position: new Vector3(18.544912338256836, 28.775147247314453, 36.143550872802734),
   rotation: new Quaternion(-2.7072407544768062e-15, -0.16581355035305023, 1.976651731183665e-8, -0.9861571192741394),
-  scale: new Vector3(0.6165609359741211, 0.6165599226951599, 0.6165609359741211)
+  scale: new Vector3(0.45, 0.45, 0.45)
 })
 sifakaLemurAnimate2.addComponentOrReplace(transform122)
 
@@ -1340,8 +1340,8 @@ engine.addEntity(easternwoollylemurA2)
 easternwoollylemurA2.setParent(_scene)
 easternwoollylemurA2.addComponentOrReplace(gltfShape10)
 const transform125 = new Transform({
-  position: new Vector3(68.153116455078125, 6.350521373748779, 84.9),
-  rotation: new Quaternion(0.044304557144641876, 0.9040204286575317, 0.09984350204467773, -0.4132983088493347),
+  position: new Vector3(68.953116455078125, 6.350521373748779, 85.7),
+  rotation: new Quaternion(0.044304557144641876, 0.8040204286575317, 0.09984350204467773, -0.4132983088493347),
   scale: new Vector3(1.0000379085540771, 0.9999983906745911, 1.0000427961349487)
 })
 easternwoollylemurA2.addComponentOrReplace(transform125)
@@ -1442,7 +1442,7 @@ const messageBubble4 = new Entity('messageBubble4')
 engine.addEntity(messageBubble4)
 messageBubble4.setParent(_scene)
 const transform94 = new Transform({
-  position: new Vector3(115.0738754272461, 1.2741498947143555, 87.3443832397461),
+  position: new Vector3(116.0738754272461, 1.52741498947143555, 87.3443832397461),
   rotation: new Quaternion(0, 0, 0, 1),
   scale: new Vector3(1, 1, 1)
 })
@@ -1583,7 +1583,7 @@ const messageBubble18 = new Entity('messageBubble18')
 engine.addEntity(messageBubble18)
 messageBubble18.setParent(_scene)
 const transform165 = new Transform({
-  position: new Vector3(26.17896842956543, 1.3490605354309082, 79),
+  position: new Vector3(26.17896842956543, 1.3490605354309082, 76),
   rotation: new Quaternion(1.0049174401678888e-16, -0.2816123366355896, 3.3570803026350404e-8, 0.9595283269882202),
   scale: new Vector3(1, 1, 1)
 })
@@ -2079,7 +2079,7 @@ const signpostDirections4 = new Entity('signpostDirections4')
 engine.addEntity(signpostDirections4)
 signpostDirections4.setParent(_scene)
 const transform153 = new Transform({
-  position: new Vector3(63.549713134765625, 13.784712791442871, 74.49870300292969),
+  position: new Vector3(63.549713134765625, 13.284712791442871, 74.49870300292969),
   rotation: new Quaternion(-1.0407992612822958e-17, 0.06826610863208771, -8.137953422249211e-9, 0.9976671934127808),
   scale: new Vector3(1, 1, 1)
 })
@@ -2447,7 +2447,7 @@ verticalMagicRock.setParent(_scene)
 const transform222 = new Transform({
   position: new Vector3(0.876129150390625, 7.558412551879883, 121.78218078613281),
   rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(0.9962183237075806, 0.8932743072509766, 1.4541462659835815)
+  scale: new Vector3(1, 1, 1.4541462659835815)
 })
 verticalMagicRock.addComponentOrReplace(transform222)
 
@@ -2457,47 +2457,49 @@ verticalMagicRock2.setParent(_scene)
 const transform223 = new Transform({
   position: new Vector3(84.21255493164062, 20.569637298583984, 102.0605239868164),
   rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(1.2689437866210938, 1.2689437866210938, 1.2689437866210938)
+  scale: new Vector3(1.6, 0.6, 1.6)
 })
 verticalMagicRock2.addComponentOrReplace(transform223)
 
 
 // Add owl flight
 
-const buhoxxxx = new Entity('buhoxxxx')
-engine.addEntity(buhoxxxx)
-buhoxxxx.setParent(_scene)
+const owl = new Entity('owl')
+engine.addEntity(owl)
+owl.setParent(_scene)
 const transform205 = new Transform({
-  position: new Vector3(10.373998641967773, 7.751908302307129, 121.17613983154297),
-  rotation: new Quaternion(-6.692902301134779e-16, -0.7071068286895752, 8.429368136830817e-8, -0.7071068286895752),
-  scale: new Vector3(1.0000014305114746, 1, 1.0000014305114746)
+  position: new Vector3(12.63017463684082, 7.4, 120.455810546875),
+  rotation: new Quaternion(2.8578857759042203e-15, -0.7730104327201843, 9.21500173944878e-8, -0.6343933343887329),
+  scale: new Vector3(1, 1, 1)
 })
-buhoxxxx.addComponentOrReplace(transform205)
-const gltfShape25 = new GLTFShape("models/BUHOXXXX.glb")
-gltfShape25.withCollisions = false
+owl.addComponentOrReplace(transform205)
+const gltfShape25 = new GLTFShape("models/owl.glb")
+gltfShape25.withCollisions = true
 gltfShape25.visible = true
-buhoxxxx.addComponentOrReplace(gltfShape25)
+owl.addComponentOrReplace(gltfShape25)
+
+const owlcollider = new Entity('owlcollider')
+engine.addEntity(owlcollider)
+owlcollider.setParent(_scene)
+const transform206 = new Transform({
+  position: new Vector3(12.63017463684082, 7.4, 120.455810546875),
+  rotation: new Quaternion(2.8578857759042203e-15, -0.7730104327201843, 9.21500173944878e-8, -0.6343933343887329),
+  scale: new Vector3(1, 1, 1)
+})
+owlcollider.addComponentOrReplace(transform206)
+const gltfShape26 = new GLTFShape("models/owlcollider.glb")
+gltfShape26.withCollisions = true
+gltfShape26.visible = true
+owlcollider.addComponentOrReplace(gltfShape26)
 
 const owlsound = new AudioClip('sounds/owl_edited.mp3')
 const audioSource9 = new AudioSource(owlsound)
-buhoxxxx.addComponent(audioSource9)
+owl.addComponent(audioSource9)
 audioSource9.playing = true 
 audioSource9.loop = true
 audioSource9.volume = 0.5
 
-const buhocollider = new Entity('buhocollider')
-engine.addEntity(buhocollider)
-buhocollider.setParent(_scene)
-const transform206 = new Transform({
-  position: new Vector3(10.373998641967773, 7.751908302307129, 121.17613983154297),
-  rotation: new Quaternion(-6.692902301134779e-16, -0.7071068286895752, 8.429368136830817e-8, -0.7071068286895752),
-  scale: new Vector3(1, 1, 1)
-})
-buhocollider.addComponentOrReplace(transform206)
-const gltfShape26 = new GLTFShape("models/BUHOCOLLIDER.glb")
-gltfShape26.withCollisions = true
-gltfShape26.visible = true
-buhocollider.addComponentOrReplace(gltfShape26)
+
 
 // SCRIPTS
 
@@ -2540,7 +2542,7 @@ script2.spawn(messageBubble4, {"text":"Hi! They call me\nTomato Frog \nbecause I
 script2.spawn(messageBubble5, {"text":"Hey! I'm a \nMadagascar\nFire Millipede. \nLemurs have a \nstrange use for\nme...","fontSize":12}, createChannel(channelId, messageBubble5, channelBus))
 script2.spawn(messageBubble6, {"text":"Watch out!\nI'm a fossa and I \neat lemurs! There\nisn't much food \nanymore so I might\neat you!","fontSize":12}, createChannel(channelId, messageBubble6, channelBus))
 script2.spawn(messageBubble7, {"text":"Hi! I'm an aye aye\nand my species is\nendangered so I'm \nlooking for bugs to eat! \n","fontSize":12}, createChannel(channelId, messageBubble7, channelBus))
-script2.spawn(messageBubble8, {"text":"Heeeeeeeeeeeey!\nI'm a silky sifaka Lemur\nand I've got the moves\nlike Jackson!","fontSize":12}, createChannel(channelId, messageBubble8, channelBus))
+script2.spawn(messageBubble8, {"text":"Hey!\nI'm a silky sifaka Lemur\nand I've got the best\nmoves on Madagascar! Come this way!","fontSize":12}, createChannel(channelId, messageBubble8, channelBus))
 script2.spawn(messageBubble9, {"text":"Hello\nThey call me the\nSatanic Leaf Tailed\nGecko - but I never\ndid anything wrong. ","fontSize":12}, createChannel(channelId, messageBubble9, channelBus))
 script2.spawn(messageBubble10, {"text":"Hi there!\nI'm a black,\nblue-eyed Lemuridae\nbut only the boys are \nactually black! ","fontSize":12}, createChannel(channelId, messageBubble10, channelBus))
 script2.spawn(messageBubble11, {"text":"I'm a Panther\nChameleon, \nwe're one of \nthe most colourful\nspecies of chameleon. ","fontSize":12}, createChannel(channelId, messageBubble11, channelBus))
@@ -2595,7 +2597,7 @@ script10.spawn(signpostDirections6, {"textTop":"Information","textLower":"Madaga
 script10.spawn(signpostDirections7, {"textTop":"Information","textLower":"Madagascar","fontSize":20}, createChannel(channelId, signpostDirections7, channelBus))
 script10.spawn(signpostDirections8, {"textTop":"Madagascar","textLower":"Owl Tour","fontSize":20}, createChannel(channelId, signpostDirections8, channelBus))
 script10.spawn(signpostDirections9, {"textTop":"Madagascar","textLower":"Owl Tour","fontSize":20}, createChannel(channelId, signpostDirections9, channelBus))
-script2.spawn(messageBubble18, {"text":"Am I a tomato?\nAm I a frog?\nNo! \nI'm an endangered\nTomato Frog. ","fontSize":15}, createChannel(channelId, messageBubble18, channelBus))
+script2.spawn(messageBubble18, {"text":"Am I a tomato?\nAm I a frog?\nNo! \nI'm an endangered\nTomato Frog. ","fontSize":12}, createChannel(channelId, messageBubble18, channelBus))
 script2.spawn(messageBubble19, {"text":"Most of my natural\nhabitat has been  \ncleared for farm land. \nI'm one of only about \n1000 black blue eyed \nlemuridaes in the wild. ","fontSize":12}, createChannel(channelId, messageBubble19, channelBus))
 script2.spawn(messageBubble20, {"text":"Leave me alone!\nI'm sleepy","fontSize":12}, createChannel(channelId, messageBubble20, channelBus))
 script3.spawn(signpostTree16, {"text":"PIXEL   ART\nCENTRE","fontSize":30}, createChannel(channelId, signpostTree16, channelBus))
@@ -2624,7 +2626,7 @@ script4.spawn(clickArea25, {"enabled":true,"onClick":[{"entityName":"tools","act
 script2.spawn(messageBubble21, {"text":"Welcome to mount\nMaromokotro! People \nare cutting down trees\non my island and I don't\nlike it. Will you help me \nreplant trees here? ","fontSize":12}, createChannel(channelId, messageBubble21, channelBus))
 script2.spawn(messageBubble22, {"text":"I may look scary \nbut I'm not very\nadventurous... in \nthe wild I only live\nin one 10km2\nforest. Please plant\ntrees there! ","fontSize":12}, createChannel(channelId, messageBubble22, channelBus))
 script8.spawn(signpostDirections10, {"textTop":"Tsingy","textMiddle":"Information","textLower":"Baobab Avenue","fontSize":20}, createChannel(channelId, signpostDirections10, channelBus))
-script2.spawn(messageBubble23, {"text":"Hello! I'm a Madagascar\nLong Eared Owl, would \nyou like to take a tour\nof the island on my back?","fontSize":15}, createChannel(channelId, messageBubble23, channelBus))
+script2.spawn(messageBubble23, {"text":"Hello! I'm a Madagascar\nLong Eared Owl, would \nyou like to take a tour\nof the island on my back?","fontSize":12}, createChannel(channelId, messageBubble23, channelBus))
 script5.spawn(scroll5, {"text":"A Madagascar Long\nEared Owl nests here. \nWait for him and he will \ngive you a tour of his \nisland. ","fontSize":36}, createChannel(channelId, scroll5, channelBus))
 script2.spawn(messageBubble24, {"text":"You found me!\nI'm a Panther \nChameleon, \nslurp! ","fontSize":15}, createChannel(channelId, messageBubble24, channelBus))
 script12.spawn(signpostTree15, {"text":"Chameleon","fontSize":20}, createChannel(channelId, signpostTree15, channelBus))
