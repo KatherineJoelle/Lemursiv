@@ -2653,7 +2653,7 @@ function refreshLeaderboards()
 {
   var leaderBoardText = "TOP DONORS \n"
 
-          let url = `${apiUrl}/top`
+          let url = `${apiUrl}/leaderboard`
             executeTask(async () => {
               try {
                 let response = await fetch(url,{
