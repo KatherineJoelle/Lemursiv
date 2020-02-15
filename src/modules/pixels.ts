@@ -16,7 +16,6 @@ export const pixels = engine.getComponentGroup(Pixel)
 
 export class CheckServer implements ISystem {
     timer: number
-
     station: string
     constructor(timer: number, station:string){
         this.timer = timer
