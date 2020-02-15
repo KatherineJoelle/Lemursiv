@@ -17,7 +17,9 @@ import {
   refreshInterval,
   swatchColors,
   wallBlocksX,
+  wallBlocksX2,
   wallBlocksY,
+  wallBlocksY2,
   wallWidth,
   wallHeight,
   wallPixelZ,
@@ -55,6 +57,7 @@ transparentMaterial = new BasicMaterial()
 station:string
 
   constructor(station:string, position:Vector3, rotation:Quaternion){
+
     super()
     this.station = station
     this.addComponent(new Transform({
@@ -203,7 +206,7 @@ clickPixel(pix: Entity) {
   let url = `${this.station}/api/pixels/pixel`
   let method = 'POST'
   let headers = { 'Content-Type': 'application/json' }
-  let body = JSON.stringify({ x: x, y: y, color: color })
+  let body = JSON.stringify({ x: x, y: y, color: color, station:this.station })
 
   executeTask(async () => {
     try {
