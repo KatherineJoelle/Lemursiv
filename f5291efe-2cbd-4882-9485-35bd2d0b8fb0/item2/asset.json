@@ -1,0 +1,48 @@
+{
+  "name": "Crate",
+  "tags": ["crate"],
+  "category": "structures",
+  "id": "f5291efe-2cbd-4882-9485-25bd2d0b8fb0",
+  "model": "models/TreasureHunt_Chest.glb",
+  "parameters": [
+    {
+      "id": "visible",
+      "label": "Crate starts visible",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "id": "collectPointId",
+      "label": "Crate ID",
+      "type": "text"
+    },
+    {
+      "id": "campaignId",
+      "label": "Campaign ID",
+      "type": "text",
+      "default": "fd27539a-30b8-4c29-b8c7-a21a90190abf"
+    },
+    {
+      "id": "onOpen",
+      "label": "When opened",
+      "type": "actions"
+    },
+    {
+      "id": "onTreasure",
+      "label": "When a treasure is won",
+      "type": "actions"
+    }
+  ],
+  "actions": [
+    {
+      "id": "show",
+      "label": "Show Crate",
+      "parameters": []
+    },
+    {
+      "id": "hide",
+      "label": "Hide Crate",
+      "parameters": []
+    }
+  ]
+}

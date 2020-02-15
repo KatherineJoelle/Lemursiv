@@ -13,6 +13,8 @@ import Script10 from "../970e597d-ef00-44d7-8fb3-72179393947e/src/item"
 import Script11 from "../683aa047-8043-40f8-8d31-beb7ab1b138c/src/item"
 import Script12 from "../28352c3a-cc20-4ab4-b4b8-a4562a6b0d4d/src/item"
 import Script13 from "../4c3b4f56-9329-4230-9d43-4f94fbf6771d/src/item"
+import CrateScript from "../f5291efe-2cbd-4882-9485-35bd2d0b8fb0/src/item"
+
 import { SmokeSource, ThrowSmoke } from "./modules/smokeSource";
 import { SmokeSystem } from "./modules/smoke";
 
@@ -2499,14 +2501,36 @@ audioSource9.playing = true
 audioSource9.loop = true
 audioSource9.volume = 0.5
 
+// ADD CRATE FOR TREASURE HUNT
+
+const crate = new Entity('crate')
+engine.addEntity(crate)
+const crateTransform = new Transform({
+  position: new Vector3(20, 28.6, 36.5),
+  rotation: new Quaternion(0, .1, 0, 1),
+  scale: new Vector3(.7, .7, .7)
+})
+crate.addComponent(crateTransform)
+engine.addEntity(crate)
+
+const inventory = createInventory(UICanvas, UIContainerStack, UIImage)
+const channelId = Math.random().toString(16).slice(2)
+const channelBus = new MessageBus()
+const crateScript = new CrateScript()
+const options = { inventory }
+
+crateScript.init(options)
+crateScript.spawn(crate, {
+    "collectPointId": `d972800d-6bda-4477-9e3d-1ccf066cafab`,
+    "campaignId": "fd27539a-30b8-4c29-b8c7-a21a90190abf",
+    "visible": true
+}, createChannel(channelId, crate, channelBus))
+
 
 
 // SCRIPTS
 
-const channelId = Math.random().toString(16).slice(2)
-const channelBus = new MessageBus()
-const inventory = createInventory(UICanvas, UIContainerStack, UIImage)
-const options = { inventory }
+
 
 const script1 = new Script1()
 const script2 = new Script2()
