@@ -54,9 +54,10 @@ There are two materials used for the wall:
 
 transparentTexture = new Texture('textures/transparent-texture.png')
 transparentMaterial = new BasicMaterial()
-station:number
+station:string
 
-  constructor(station:number, position:Vector3, rotation:Quaternion){
+  constructor(station:string, position:Vector3, rotation:Quaternion){
+
     super()
     this.station = station
     this.addComponent(new Transform({
@@ -65,6 +66,7 @@ station:number
       scale: Vector3.One()
     }))
     engine.addEntity(this)
+    log("creating pixel station " + station)
 
     this.transparentMaterial.texture = this.transparentTexture
         // Add systems to engine
@@ -76,7 +78,7 @@ station:number
 
     this.InitiateWall()
     this.InitiatePalette()
-    getFromServer()
+    getFromServer(this.station)
   }
 
   // lay out all wall pixels
@@ -201,7 +203,7 @@ clickPixel(pix: Entity) {
     color = null
   }
 
-  let url = `${apiUrl}/api/pixels/pixel`
+  let url = `${this.station}/api/pixels/pixel`
   let method = 'POST'
   let headers = { 'Content-Type': 'application/json' }
   let body = JSON.stringify({ x: x, y: y, color: color, station:this.station })
@@ -217,7 +219,7 @@ clickPixel(pix: Entity) {
       log('error sending pixel change')
     }
   })
-  getFromServer()
+  getFromServer(this.station)
 }
 
 }
