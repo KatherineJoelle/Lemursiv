@@ -34,7 +34,7 @@ import {
   wallPixelTransparentMaterial,
   wallPixelColorMaterial
 } from './modules/pixels'
-import { apiUrl, refreshInterval, swatchColors, wallBlocksX, wallBlocksY, wallWidth, wallHeight, wallPixelZ, wallPixelScale, paletteColor, wallOffsetX, wallOffsetY, blankColor,headers } from "./params";
+import { apiUrl, refreshInterval, swatchColors, wallBlocksX, wallBlocksY, wallWidth, wallHeight, wallPixelZ, wallPixelScale, paletteColor, wallOffsetX, wallOffsetY, blankColor } from "./params";
 
 import {LemursivUI} from './UI'
 
@@ -1916,11 +1916,9 @@ scroll3.addComponentOrReplace(transform173)
 // PIXEL ART CENTRES
 
 import {PixelInstance} from './pixelinstance'
-
-const station1 = new PixelInstance("api url",new Vector3(25.50196838378906, 0.62319021224975586, 110.0679702758789),new Quaternion(-1.5394153601527394e-15, 1.1571068286895752, 8.429369557916289e-8, 0.7071068286895752))
-const station2 = new PixelInstance("api url",new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
-const station3 = new PixelInstance("api url",new Vector3(105.12619018554688, 2.397695350646973, 111.86958312988281),new Quaternion(4.1924393356208107e-16, -0.5275349736213684, 3.370685419668007e-8, 0.95919269323349))
-
+const station1 = new PixelInstance(1,new Vector3(25.50196838378906, 0.62319021224975586, 110.0679702758789),new Quaternion(-1.5394153601527394e-15, 1.1571068286895752, 8.429369557916289e-8, 0.7071068286895752))
+const station2 = new PixelInstance(2,new Vector3(33.67498016357422, 3.8667573928833008, 44.63134765625),new Quaternion(4.1924393356208107e-16, -0.28275349736213684, 3.370685419668007e-8, 0.95919269323349))
+const station3 = new PixelInstance(3,new Vector3(105.12619018554688, 2.397695350646973, 111.86958312988281),new Quaternion(4.1924393356208107e-16, -0.5275349736213684, 3.370685419668007e-8, 0.95919269323349))
 
 
 
@@ -2657,51 +2655,6 @@ script2.spawn(messageBubble23, {"text":"Hello! I'm a Madagascar\nLong Eared Owl,
 script5.spawn(scroll5, {"text":"A Madagascar Long\nEared Owl nests here. \nWait for him and he will \ngive you a tour of his \nisland. ","fontSize":36}, createChannel(channelId, scroll5, channelBus))
 script2.spawn(messageBubble24, {"text":"You found me!\nI'm a Panther \nChameleon, \nslurp! ","fontSize":15}, createChannel(channelId, messageBubble24, channelBus))
 script12.spawn(signpostTree15, {"text":"Chameleon","fontSize":20}, createChannel(channelId, signpostTree15, channelBus))
-
-var sign18Channel = createChannel(channelId, signpostTree18, channelBus)
-script3.spawn(signpostTree18, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign18Channel)
-
-var sign19Channel = createChannel(channelId, signpostTree18, channelBus)
-script3.spawn(signpostTree19, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign19Channel)
-
-var sign20Channel = createChannel(channelId, signpostTree18, channelBus)
-script3.spawn(signpostTree20, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign20Channel)
-
-var sign21Channel = createChannel(channelId, signpostTree18, channelBus)
-script3.spawn(signpostTree21, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, sign21Channel)
-
-//const leaderboardSystem = new LemursivLeaderboardSystem(["signpostTree18", "signpostTree19",'signpostTree20','signpostTree21'],[sign18Channel,sign19Channel,sign20Channel,sign21Channel])
-//engine.addSystem(leaderboardSystem)
-
-function refreshLeaderboards()
-{
-  var leaderBoardText = "TOP DONORS \n"
-
-          let url = `${apiUrl}/leaderboard`
-            executeTask(async () => {
-              try {
-                let response = await fetch(url,{
-                  method: "GET",  
-                  headers: headers
-                })
-                for(var i = 0; i < 8; i++)
-                {
-                  leaderBoardText += "\n" + i + 1 + "."+response[i]
-                }
-
-                this.sign18Channel.sendActions([{"entityName":"signpostTree18","actionId":"changeText","values":{"newText":leaderBoardText}}])
-                this.sign19Channel.sendActions([{"entityName":"signpostTree19","actionId":"changeText","values":{"newText":leaderBoardText}}])
-                this.sign20Channel.sendActions([{"entityName":"signpostTree20","actionId":"changeText","values":{"newText":leaderBoardText}}])
-                this.sign21Channel.sendActions([{"entityName":"signpostTree21","actionId":"changeText","values":{"newText":leaderBoardText}}])
-
-              } catch {
-                log("failed to reach leaderboard url")
-              }
-             })
-             
-}
-
-
 script3.spawn(signpostTree18, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree18, channelBus))
 script3.spawn(signpostTree19, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree19, channelBus))
 script3.spawn(signpostTree20, {"text":"TOP DONORS \n\n1.************************************************\n2. ************************************************\n3. ************************************************\n4. ************************************************\n5. ************************************************\n6. ************************************************\n7. ************************************************\n8. ************************************************\n","fontSize":12}, createChannel(channelId, signpostTree20, channelBus))

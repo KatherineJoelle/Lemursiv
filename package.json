@@ -14,8 +14,7 @@
     "decentraland-ecs": "latest"
   },
   "dependencies": {
-    "decentraland-ecs": "latest",
-    "decentraland-builder-scripts": "latest",
-    "decentraland-ecs-utils": "latest
+    "decentraland-builder-scripts": "^0.24.0",
+    "decentraland-ecs": "latest"
   }
 }
